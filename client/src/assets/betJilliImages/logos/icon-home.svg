@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>leftmenu/other/icon-home</title>
+    <defs>
+        <linearGradient x1="50%" y1="1.33055874e-13%" x2="50%" y2="104.53891%" id="linearGradient-1">
+            <stop stop-color="#F5DB21" stop-opacity="0.7" offset="0%"></stop>
+            <stop stop-color="#F5DB21" stop-opacity="0.995478029" offset="100%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+            <stop stop-color="#F5DB21" stop-opacity="0.995478029" offset="100%"></stop>
+        </linearGradient>
+        <path d="M27.8437099,15.2744437 L15.3125294,4.11867835 C15.1325125,3.96044055 14.862487,3.96044055 14.6874706,4.11867835 L2.15629014,15.2744437 C2.01127648,15.4030119 1.96127177,15.6057541 2.03127836,15.7837716 C2.10128496,15.9617892 2.27630144,16.0804675 2.46631934,16.0804675 L5.75662929,16.0804675 L5.75662929,25.5351764 C5.75662929,25.7923129 5.96664907,26 6.22667356,26 L11.4521658,26 C11.7121903,26 11.9222101,25.7923129 11.9222101,25.5351764 L11.9222101,18.5628231 L18.0777899,18.5628231 L18.0777899,25.5351764 C18.0777899,25.7923129 18.2878097,26 18.5478342,26 L23.7733264,26 C24.0333509,26 24.2433707,25.7923129 24.2433707,25.5351764 L24.2433707,16.0804675 L27.5336807,16.0804675 C27.728699,16.0804675 27.898715,15.9617892 27.9687216,15.7837716 C28.0387282,15.6057541 27.9887235,15.4030119 27.8437099,15.2744437 Z" id="path-2"></path>
+        <filter x="-15.4%" y="-9.1%" width="130.8%" height="136.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="leftmenu/other/icon-home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Path">
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+            <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>leftmenu/games/icon-all-provider</title>
+    <defs>
+        <linearGradient x1="50%" y1="1.33055874e-13%" x2="50%" y2="104.53891%" id="linearGradient-1">
+            <stop stop-color="#F4B600" stop-opacity="0.7" offset="0%"></stop>
+            <stop stop-color="#F4B600" stop-opacity="0.995478029" offset="100%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+            <stop stop-color="#F4B600" stop-opacity="0.995478029" offset="100%"></stop>
+        </linearGradient>
+        <path d="M6.77777779,5.6 L11.2222222,5.6 C12.2040618,5.6 13,6.39593823 13,7.37777779 L13,11.8222222 C13,12.8040618 12.2040618,13.6 11.2222222,13.6 L6.77777779,13.6 C5.79593823,13.6 5,12.8040618 5,11.8222222 L5,7.37777779 C5,6.39593823 5.79593823,5.6 6.77777779,5.6 Z M6.77777779,16.6 L11.2222222,16.6 C12.2040618,16.6 13,17.3959382 13,18.3777778 L13,22.8222222 C13,23.8040618 12.2040618,24.6 11.2222222,24.6 L6.77777779,24.6 C5.79593823,24.6 5,23.8040618 5,22.8222222 L5,18.3777778 C5,17.3959382 5.79593823,16.6 6.77777779,16.6 Z M17.7777778,16.6 L22.2222222,16.6 C23.2040618,16.6 24,17.3959382 24,18.3777778 L24,22.8222222 C24,23.8040618 23.2040618,24.6 22.2222222,24.6 L17.7777778,24.6 C16.7959382,24.6 16,23.8040618 16,22.8222222 L16,18.3777778 C16,17.3959382 16.7959382,16.6 17.7777778,16.6 Z M20.2181818,4.6 C20.7704666,4.6 21.2181818,5.04771525 21.2181818,5.6 L21.218,8.381 L24,8.38181818 C24.5522847,8.38181818 25,8.82953343 25,9.38181818 L25,10.2181818 C25,10.7704666 24.5522847,11.2181818 24,11.2181818 L21.218,11.218 L21.2181818,14 C21.2181818,14.5522847 20.7704666,15 20.2181818,15 L19.3818182,15 C18.8295334,15 18.3818182,14.5522847 18.3818182,14 L18.381,11.218 L15.6,11.2181818 C15.0477153,11.2181818 14.6,10.7704666 14.6,10.2181818 L14.6,9.38181818 C14.6,8.82953343 15.0477153,8.38181818 15.6,8.38181818 L18.381,8.381 L18.3818182,5.6 C18.3818182,5.04771525 18.8295334,4.6 19.3818182,4.6 L20.2181818,4.6 Z" id="path-2"></path>
+        <filter x="-20.0%" y="-10.0%" width="140.0%" height="140.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="leftmenu/games/icon-all-provider" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Combined-Shape">
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+            <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+        </g>
+    </g>
+</svg>

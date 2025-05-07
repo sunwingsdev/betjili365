@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>telegram-channel</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="global/footer" transform="translate(-123.000000, -100.000000)" fill-rule="nonzero">
+            <g id="Follow-Us" transform="translate(10.000000, 69.000000)">
+                <g id="icon" transform="translate(13.000000, 31.000000)">
+                    <g id="telegram-channel" transform="translate(100.000000, 0.000000)">
+                        <circle id="Oval" fill="#00AAEE" cx="15.2045455" cy="15" r="15"></circle>
+                        <path d="M21.0841737,8.71512365 L6.67333359,14.1575464 C5.71359527,14.5659137 5.71359527,15.0782291 6.51091634,15.3083998 L10.2022176,16.4369786 L18.7438887,11.143053 C19.1499318,10.9054575 19.5190619,11.0316801 19.2163752,11.2989751 L12.2914941,17.4319099 L12.2914941,17.4319099 L12.0404856,21.1443402 C12.3271594,21.1355494 12.5961724,21.0029785 12.7787459,20.780522 L14.5727183,19.0653792 L18.3009325,21.7680285 C18.9875145,22.1466963 19.4821489,21.95365 19.6593314,21.1443402 L22.1029728,9.82142787 C22.3539813,8.83392142 21.7190775,8.38842979 21.0694085,8.67799935 L21.0841737,8.71512365 Z" id="Path" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

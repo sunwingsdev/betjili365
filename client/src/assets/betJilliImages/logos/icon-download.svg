@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>leftmenu/other/icon-download</title>
+    <defs>
+        <linearGradient x1="50%" y1="1.33055874e-13%" x2="50%" y2="104.53891%" id="linearGradient-1">
+            <stop stop-color="#F5DB21" stop-opacity="0.7" offset="0%"></stop>
+            <stop stop-color="#F5DB21" stop-opacity="0.995478029" offset="100%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+            <stop stop-color="#F5DB21" stop-opacity="0.995478029" offset="100%"></stop>
+        </linearGradient>
+        <path d="M21.5,4 C24.535,4 27,6.47 27,9.5 L27,21.5 C27,24.535 24.535,27 21.5,27 L9.5,27 C6.465,27 4,24.535 4,21.5 L4,9.5 C4,6.465 6.465,4 9.5,4 L21.5,4 Z M21.5,6.5 L9.5,6.5 C7.845,6.5 6.5,7.845 6.5,9.5 L6.5,21.5 C6.5,23.155 7.845,24.5 9.5,24.5 L21.5,24.5 C23.155,24.5 24.5,23.155 24.5,21.5 L24.5,9.5 C24.5,7.845 23.155,6.5 21.5,6.5 Z M20.78,19.935 C21.055,19.935 21.28,20.16 21.28,20.435 L21.28,21.805 C21.28,22.08 21.055,22.305 20.78,22.305 L10.41,22.305 C10.135,22.305 9.91,22.08 9.91,21.805 L9.91,20.435 C9.91,20.16 10.135,19.935 10.41,19.935 Z M17.165,8.81 C17.23,8.81 17.28,8.865 17.28,8.94 L17.28,14.015 L19.37,14.015 C19.415,14.015 19.46,14.05 19.475,14.1 C19.485,14.12 19.485,14.135 19.485,14.15 C19.485,14.185 19.475,14.22 19.45,14.245 L15.675,18.205 C15.63,18.25 15.565,18.25 15.52,18.205 L11.745,14.245 C11.725,14.22 11.71,14.185 11.71,14.15 C11.71,14.13 11.715,14.115 11.72,14.1 C11.735,14.05 11.78,14.015 11.825,14.015 L13.77,14.015 L13.77,8.94 C13.77,8.87 13.82,8.81 13.885,8.81 L17.165,8.81 Z" id="path-2"></path>
+        <filter x="-17.4%" y="-8.7%" width="134.8%" height="134.8%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="leftmenu/other/icon-download" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Combined-Shape">
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+            <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+        </g>
+    </g>
+</svg>
