@@ -1,8 +1,10 @@
-import { useState } from "react";
-import { FaChevronLeft } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { RxCross2 } from "react-icons/rx";
 import LoginFacai from "./LoginFacai";
+import { LanguageContext } from "@/Context/LanguageContext";
 
 const LoginModal = ({isModalLoginOpen, setIsModalLoginOpen,setIsModalOpen,setIsModalForgetOpen}) => {
+  const { language } = useContext(LanguageContext);
     
     const handleRegisterOpen = () => {
         setIsModalOpen(true);
@@ -11,11 +13,14 @@ const LoginModal = ({isModalLoginOpen, setIsModalLoginOpen,setIsModalOpen,setIsM
 
   return (
     <div className="fixed inset-0 z-50  text-white sm:hidden">
-      <div className="flex items-center w-full bg-componentBgPrimary justify-between p-4">
-        <button onClick={() => setIsModalLoginOpen(false)} className="text-white text-2xl">
-          <FaChevronLeft />
+      <div className="flex items-center w-full bg-primary-primaryColor justify-between py-2 p-4">
+        
+        <h2 className="ml-4  text-center w-full font-semibold">
+          {language === "en" ? "Login":"লগ ইন"}
+          </h2>
+        <button onClick={() => setIsModalLoginOpen(false)} className="text-white text-xl">
+        <RxCross2 />
         </button>
-        <h2 className="ml-4 text-xl text-center w-full font-semibold">Login</h2>
       </div>
       <div className="h-screen overflow-y-auto">
        

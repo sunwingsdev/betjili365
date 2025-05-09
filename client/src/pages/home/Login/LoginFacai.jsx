@@ -1,7 +1,8 @@
 import { useContext, useRef, useState } from "react";
 import signUpImage from "../../../assets/register/image_157256.jpg";
 
-import mainLogo from "../../../assets/v2/loaderLogo.png";
+// import mainLogo from "../../../assets/v2/loaderLogo.png";
+import mainLogo from "../../../assets/betJilliImages/images/member-logo.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { LanguageContext } from "@/Context/LanguageContext";
@@ -46,7 +47,7 @@ const LoginFacai = ({ handleRegisterOpen, setIsModalForgetOpen }) => {
       title: "লগইন",
       username: "ব্যবহারকারীর নাম",
       placeholderUsername: "৪-১৫ অক্ষর নাম্বার এলাউ",
-      password: "গোপন নম্বর",
+      password: "পাসওয়ার্ড",
       placeholderPassword: "৬-২০ অক্ষর নাম্বার এলাউ",
       finalSubmit: "লগইন",
     },
@@ -107,10 +108,10 @@ const LoginFacai = ({ handleRegisterOpen, setIsModalForgetOpen }) => {
   return (
     <div>
       {/* largeDevice */}
-      <div className="bg-primary-primaryColor">
+      {/* <div className="bg-primary-primaryColor">
         <div className="py-5 hidden md:block  mx-auto lg:max-w-6xl  text-white">
           <div className="flex flex-col lg:items-center lg:flex-row gap-4 lg:gap-0  p-8">
-            {/* Image Section */}
+            
             <div className="lg:w-full lg:h-[600px]">
               <img
                 src={signUpImage}
@@ -120,7 +121,7 @@ const LoginFacai = ({ handleRegisterOpen, setIsModalForgetOpen }) => {
               />
             </div>
 
-            {/* Form Section */}
+            
             <form
               onSubmit={handleSubmit}
               className="lg:w-2/3 lg:h-[800px] bg-componentBgPrimary text-sm p-10 space-y-6"
@@ -182,62 +183,80 @@ const LoginFacai = ({ handleRegisterOpen, setIsModalForgetOpen }) => {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* phoneDevice */}
-      <div className="pb-14 md:hidden h-screen   mx-auto lg:max-w-6xl text-xs bg-primary-primaryColorTwo text-white">
-        <div className="flex flex-col lg:flex-row gap-4 lg:border-4 border-textPrimary p-6">
-          <div className="     flex justify-center items-center ">
-            <img src={mainLogo} alt="" className="w-[30%]" />
+      <div className="pb-14 md:hidden h-screen   mx-auto lg:max-w-6xl text-xs bg-jili-bgBlack text-white">
+        <div className="flex flex-col lg:flex-row gap-4 lg:border-4 border-textPrimary ">
+          <div className="  p-6   flex justify-center items-center ">
+            <img src={mainLogo} alt="" className="w-[60%]" />
           </div>
 
           {/* Form Section */}
           <form onSubmit={handleSubmit} className="  text-sm  space-y-6">
-            <div>
-              <h3>{t.username}</h3>
-              <input
-                type="text"
-                name="username"
-                placeholder={t.placeholderUsername}
-                className="w-full p-2 text-black bg-componentBgSecondary border border-gray-400 rounded-md"
-                value={formData.username}
-                onChange={handleChange}
-              />
-            </div>
+            <div className="p-2">
+              <div className="bg-jili-bgSecondary bg-opacity-70 p-2 rounded flex flex-col gap-2  ">
+                <div className="flex flex-col gap-2">
+                  <h3>{t.username}</h3>
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder={t.placeholderUsername}
+                    className="w-full p-2 text-white bg-jili-bgSecondary  outline-textSecondaryColorThree rounded-md"
+                    value={formData.username}
+                    onChange={handleChange}
+                  />
+                </div>
 
-            <div className="  flex flex-col">
-              <h3>{t.password}</h3>
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  placeholder={t.placeholderPassword}
-                  className="w-full p-2 text-white bg-componentBgSecondary border border-gray-400 rounded-md"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-                <div
-                  className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <FaEye className="text-textPrimary " />
-                  ) : (
-                    <FaEyeSlash className="text-textPrimary " />
-                  )}
+                <div className="  flex flex-col gap-2">
+                  <h3>{t.password}</h3>
+                  <div className="relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      placeholder={t.placeholderPassword}
+                      className="w-full p-2 text-white bg-jili-bgSecondary outline-textSecondaryColorThree rounded-md"
+                      value={formData.password}
+                      onChange={handleChange}
+                    />
+                    <div
+                      className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <FaEye className=" " />
+                      ) : (
+                        <FaEyeSlash className=" " />
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-end">
+                  <div className="border border-textSecondaryColorThree rounded px-2 py-1 cursor-pointer">
+                    <p
+                      onClick={() => setIsModalForgetOpen(true)}
+                      className="text-xs text-textSecondaryColorThree"
+                    >
+                      {language === "en"
+                        ? "Forget Password"
+                        : "পাসওয়ার্ড ভুলে গেছেন?"}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="flex justify-end">
-              <p
-                onClick={() => setIsModalForgetOpen(true)}
-                className="text-textSecondaryColor"
-              >
-                Forget Password
-              </p>
+            <div className="flex justify-between gap-6 text-sm items-center p-2">
+              <div className="w-full">
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="bg-formBgColor w-full text-white px-6 py-2 rounded-md ml-auto"
+                >
+                  {t.finalSubmit}
+                </button>
+              </div>
             </div>
-
-            <div className="flex justify-between gap-6 text-sm items-center">
+            {/* <div className="flex justify-between gap-6 text-sm items-center p-2">
               <div className="w-full">
                 <button
                   type="submit"
@@ -247,8 +266,8 @@ const LoginFacai = ({ handleRegisterOpen, setIsModalForgetOpen }) => {
                   {isLoading ? "Logging In..." : t.finalSubmit}
                 </button>
               </div>
-            </div>
-            <div className="flex gap-2">
+            </div> */}
+            <div className="flex justify-center gap-2">
               <p>
                 {language === "en"
                   ? "Do not have an account"
@@ -258,7 +277,7 @@ const LoginFacai = ({ handleRegisterOpen, setIsModalForgetOpen }) => {
                 onClick={handleRegisterOpen}
                 className="text-textSecondaryColor"
               >
-                {language === "en" ? "Sign up" : "নিবন্ধন করুন ? "}
+                {language === "en" ? "Sign up" : "সাইন আপ ? "}
               </strong>
             </div>
           </form>
