@@ -18,21 +18,21 @@ const HomeGames = () => {
       id: 3,
       image:
         "https://img.b112j.com/upload/game/AWCMSEXY/MX-LIVE-001_SEXY_1.png?v=1725529632354",
-      title: "Sexy Baccarat Classic-SEXY hall-Table1",
+      title: "Sexy Baccarat",
       subtitle: "Crazy",
     },
     {
       id: 4,
       image:
         "https://img.b112j.com/upload/game/EVO/monopoly@Monopoly00000001.png?v=1717404282418",
-      title: "Evolution Monopoly Live",
+      title: "Evolution Monopoly",
       subtitle: "Crazy",
     },
     {
       id: 5,
       image:
         "https://img.b112j.com/upload/game/EVO/roulette@48z5pjps3ntvqc1b.png?v=1717401497320",
-      title: "Evolution Auto-Roulette",
+      title: "Evolution Auto",
       subtitle: "Crazy",
     },
     {
@@ -53,63 +53,63 @@ const HomeGames = () => {
       id: 8,
       image:
         "https://img.b112j.com/upload/game/EVO/monopoly@Monopoly00000001.png?v=1717404282418",
-      title: "Evolution Monopoly Live",
+      title: "Evolution Monopoly",
       subtitle: "Crazy",
     },
     {
       id: 9,
       image:
         "https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1717463157508",
-      title: "Evolution Super Sic Bo",
+      title: "Evolution Super",
       subtitle: "Crazy",
     },
     {
       id: 10,
       image:
         "https://img.b112j.com/upload/game/EVO/roulette@48z5pjps3ntvqc1b.png?v=1717401497320",
-      title: "Evolution Auto-Roulette",
+      title: "Evolution Auto",
       subtitle: "Crazy",
     },
     {
       id: 11,
       image:
         "https://img.b112j.com/upload/game/EVO/monopoly@Monopoly00000001.png?v=1717404282418",
-      title: "Evolution Monopoly Live",
+      title: "Evolution Monopoly",
       subtitle: "Crazy",
     },
     {
       id: 12,
       image:
         "https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1717463157508",
-      title: "Evolution Super Sic Bo",
+      title: "Evolution Super",
       subtitle: "Crazy",
     },
     {
       id: 13,
       image:
         "https://img.b112j.com/upload/game/EVO/roulette@48z5pjps3ntvqc1b.png?v=1717401497320",
-      title: "Evolution Auto-Roulette",
+      title: "Evolution Auto",
       subtitle: "Crazy",
     },
     {
       id: 14,
       image:
         "https://img.b112j.com/upload/game/EVO/sicbo@SuperSicBo000001.png?v=1717463157508",
-      title: "Evolution Super Sic Bo",
+      title: "Evolution Super",
       subtitle: "Crazy",
     },
     {
       id: 15,
       image:
         "https://img.b112j.com/upload/game/EVO/roulette@48z5pjps3ntvqc1b.png?v=1717401497320",
-      title: "Evolution Auto-Roulette",
+      title: "Evolution Auto",
       subtitle: "Crazy",
     },
     {
       id: 16,
       image:
         "https://img.b112j.com/upload/game/AWCMSEXY/MX-LIVE-001_SEXY_1.png?v=1725529632354",
-      title: "Sexy Baccarat Classic-SEXY hall-Table1",
+      title: "Sexy Baccarat",
       subtitle: "Crazy",
     },
     {
@@ -123,7 +123,7 @@ const HomeGames = () => {
       id: 18,
       image:
         "https://img.b112j.com/upload/game/AWCMSEXY/MX-LIVE-001_SEXY_1.png?v=1725529632354",
-      title: "Sexy Baccarat Classic-SEXY hall-Table1",
+      title: "Sexy Baccarat",
       subtitle: "Crazy",
     },
     {
@@ -135,18 +135,15 @@ const HomeGames = () => {
     },
   ];
   return (
-    <div className="text-white md:hidden">
+    <div className="text-white hidden md:block">
       <h2 className="border-s-[7px] ps-3 my-3 border-green-600 rounded ">
         বৈশিষ্ট্যযুক্ত গেম
       </h2>
       <div className="flex overflow-x-auto gap-4">
         {games.map((game) => (
-          <div
-            className="flex flex-col items-center gap-2 min-w-44"
-            key={game.id}
-          >
+          <div className="flex flex-col items-start min-w-44" key={game.id}>
             <img className="w-full rounded-lg" src={game.image} alt="" />
-            <p className="text-base">{game.title}</p>
+            <p className="text-base bg-[#333333] w-full p-2">{game.title}</p>
           </div>
         ))}
       </div>

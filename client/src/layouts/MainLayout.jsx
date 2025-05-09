@@ -56,6 +56,8 @@ const MainLayout = () => {
     ),
   }));
 
+  console.log("mm", menuItems);
+
   return (
     <>
       <div>
@@ -102,17 +104,14 @@ const MainLayout = () => {
           isModalLoginOpen={isModalLoginOpen}
           setIsModalLoginOpen={setIsModalLoginOpen}
           setIsModalOpen={setIsModalOpen}
-          setIsModalForgetOpen = {setIsModalForgetOpen}
+          setIsModalForgetOpen={setIsModalForgetOpen}
         />
       )}
       {isModalForgetOpen && (
         <ForgetPasswordModal
-        isModalForgetOpen={isModalForgetOpen}
-         setIsModalForgetOpen = {setIsModalForgetOpen}
-
-          
+          isModalForgetOpen={isModalForgetOpen}
+          setIsModalForgetOpen={setIsModalForgetOpen}
           setIsModalLoginOpen={setIsModalLoginOpen}
-          
         />
       )}
     </>
