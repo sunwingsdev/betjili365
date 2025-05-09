@@ -29,10 +29,10 @@ const BDTModalFacai = ({ isOpenLanguage, toggleCloseLanguage, toggleLanguage, cu
       onClick={toggleCloseLanguage}
     >
       <div
-        className="bg-white pb-6 rounded-md shadow-md w-72"
+        className="  rounded-md shadow-md w-72"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex flex-row px-5 py-3 items-center justify-between bg-backgroundSecondaryColor">
+        <div className="flex flex-row px-5 py-3 items-center justify-between bg-primary-primaryColor">
           <h2 className="font-thin text-white">{text[currentLang].title}</h2>
           <button
             onClick={toggleCloseLanguage}
@@ -54,26 +54,31 @@ const BDTModalFacai = ({ isOpenLanguage, toggleCloseLanguage, toggleLanguage, cu
           </button>
         </div>
 
-        <div className="flex items-center justify-center pt-3 space-x-3">
+        <div className="flex bg-jili-bgBlack py-6  text-white items-center justify-center  space-x-3">
+          
           <div className="flex flex-row items-center gap-2 font-bold">
             <img src={Bdlogo} alt="BD Logo" className="h-8" />
-            <h3 className="text-black text-xs">{text[currentLang].currency}</h3>
+            <h3 className=" text-xs">{text[currentLang].currency}</h3>
           </div>
+          <div>
+
+          
           <div className="flex gap-2 text-sm">
             <button
               onClick={() => handleLanguageChange("en")}
-              className={`border p-2 rounded-md font-bold text-center
-                ${currentLang === "en" ? " text-textSecondaryColor border-textSecondaryColor" : "text-black hover:border-common-blue hover:text-common-blue"}`}
+              className={` p-2 rounded-md font-bold text-center bg-jili-bgSecondary
+                ${currentLang === "en" ? " text-textSecondaryColor border-textSecondaryColor border" : " hover:border-common-blue hover:text-common-blue"}`}
             >
               {text[currentLang].english}
             </button>
             <button
               onClick={() => handleLanguageChange("bn")}
-              className={`border p-2 rounded-md font-bold text-center
-                ${currentLang === "bn" ? " text-textSecondaryColor border-textSecondaryColor" : "text-black hover:border-common-blue hover:text-common-blue"}`}
+              className={` p-2 rounded-md font-bold text-center bg-jili-bgSecondary
+                ${currentLang === "bn" ? " text-textSecondaryColorThree border-textSecondaryColorThree border" : " hover:border-common-blue hover:text-common-blue"}`}
             >
               {text[currentLang].bengali}
             </button>
+          </div>
           </div>
         </div>
       </div>

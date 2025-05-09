@@ -17,7 +17,7 @@ export default {
       colors: {
         background: "hsl(var(--background))",
         componentBgPrimary:"#222843",
-        componentBgSecondary:"#243254",
+        // componentBgSecondary:"#243254",
         redBgColor:"#91001F99",
         backgroundSecondaryColor: "#C9A33D",
         backgroundV2Color:"#ffE116",
@@ -36,7 +36,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          primaryColorTwo: "#191e32",
+          // primaryColorTwo: "#191e32",
           // primaryColor: "#111421",
           primaryColor: "#212121",
           primaryColorJili: "#221919",
@@ -76,7 +76,9 @@ export default {
           bgBlack:"#000000", 
           bgSecondary: "#333333", 
           textPrimary: "#FFE400", 
-          textSecondary: "#F5DB21", 
+          textSecondary: "#F5DB21",
+          textThird: "#999999",
+          bgForm:"#4d4d4d" 
         },
       },
       

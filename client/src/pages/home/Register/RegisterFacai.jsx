@@ -1,5 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import signUpImage from "../../../assets/register/image_157256.jpg";
+import mainLogoJili from "../../../assets/betJilliImages/images/member-logo.png";
 import mobileImage from "../../../assets/v2/mobileImage.jpg";
 import bdImage from "../../../assets/v2/BD.png";
 import INImage from "../../../assets/v2/IN.png";
@@ -104,7 +105,7 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
       confirmPassword: "পাসওয়ার্ড নিশ্চিত করুন",
       placeholder: "এখানে পূরণ করুন",
       submit: "পরবর্তী",
-      currency: "কারেন্সি নির্বাচন করুন",
+      currency: "মুদ্রা বেছে নিন",
       phoneNumber: "ফোন নম্বর",
       countryCode: "কান্ট্রি কোড",
       email: "ইমেইল",
@@ -113,9 +114,9 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
       referralCode: "রেফার কোড ",
       placeholderReferralCode: "আপনার যদি থাকে তবে প্রবেশ করুন",
       legal: "আমি বৈধ বয়সের এবং সম্মত আছি",
-      terms: "শর্তাবলী ও নিয়মাবলি",
+      terms: "শর্তাবলী ",
       back: "পেছনে ",
-      finalSubmit: "নিবন্ধন",
+      finalSubmit: "নিশ্চিত করুন",
     },
   };
 
@@ -227,13 +228,13 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
   return (
     <div>
       {/* largeDevice */}
-      <div
+      {/* <div
         className="bg-primary-primaryColor"
         style={{ backgroundImage: `url(${registerBg})` }}
       >
         <div className="py-5 hidden md:block  mx-auto lg:max-w-6xl  text-white">
           <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-0   p-8">
-            {/* Image Section */}
+            
             <div className="lg:w-full lg:h-[600px]">
               <img
                 src={signUpImage}
@@ -243,12 +244,12 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
               />
             </div>
 
-            {/* Form Section */}
+            
             <form
               onSubmit={handleSubmit}
               className="lg:w-2/3 lg:h-[800px] bg-componentBgPrimary text-sm p-10 space-y-6"
             >
-              {/* Step 0 - Referral and Currency */}
+              
               {step === 0 && (
                 <div className="space-y-6 relative">
                   <h3 className="text-textSecondaryColor font-semibold text-lg">
@@ -322,7 +323,7 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
                 </div>
               )}
 
-              {/* Step 1 - Username & Password */}
+              
               {step === 1 && (
                 <>
                   <div className="flex ">
@@ -399,21 +400,11 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
                     </div>
                   </div>
 
-                  {/* <div>
-                  <h3 className="text-white mb-1">{t.referralCode}</h3>
-                  <input
-                    type="text"
-                    name="referralCode"
-                    placeholder={t.placeholderReferralCode}
-                    className="w-full p-2 bg-primary-primaryColor text-white border border-gray-400 rounded-md"
-                    value={formData.referralCode}
-                    onChange={handleChange}
-                  />
-                </div> */}
+                  
                 </>
               )}
 
-              {/* Step 2 - Phone, Email, Verification, Terms */}
+             
               {step === 2 && (
                 <>
                   <div className="flex ">
@@ -486,17 +477,7 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
                     </div>
                   </div>
 
-                  {/* <div>
-                <h3>{t.email}</h3>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder={t.placeholder}
-                  className="w-full p-2 text-black border border-gray-400 rounded-md"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div> */}
+                 
 
                   <div>
                     <h3>{t.verificationCode}</h3>
@@ -520,39 +501,13 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
                     </div>
                   </div>
 
-                  {/* <div className="flex items-center space-x-2 text-sm">
-                <input
-                  type="checkbox"
-                  name="agreed"
-                  checked={formData.agreed}
-                  onChange={handleCheckboxChange}
-                />
-                <label>
-                  {t.legal}{" "}
-                  <Link
-                    to="/terms"
-                    className="text-white font-semibold underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t.terms}
-                  </Link>
-                </label>
-              </div> */}
+                 
                 </>
               )}
 
-              {/* Footer Buttons */}
+              
               <div className="flex justify-between gap-6 text-sm items-center">
-                {/* {step > 0 && (
-              <button
-                type="button"
-                onClick={() => setStep((prev) => prev - 1)}
-                className="bg-bg-Secondary w-full text-white px-4 py-2 rounded-md"
-              >
-                {t.back}
-              </button>
-            )} */}
+               
                 <div className="w-full">
                   {(step === 1 || step === 2) && (
                     <button
@@ -589,12 +544,12 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* phoneDevice */}
-      <div className="pb-14 md:hidden  mx-auto lg:max-w-6xl bg-primary-primaryColorTwo text-white">
-        <div className="flex flex-col lg:flex-row gap-4 lg:border-4 border-textPrimary p-6">
-          <div className="     flex justify-center items-center ">
+      <div className="pb-14 md:hidden  mx-auto lg:max-w-6xl bg-jili-bgBlack text-white">
+        <div className="flex flex-col lg:flex-row gap-4 lg:border-4 border-textPrimary ">
+          {/* <div className="     flex justify-center items-center ">
             <img
               src={`${import.meta.env.VITE_BASE_API_URL}${
                 logoHomeControl?.image
@@ -602,185 +557,193 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
               alt=""
               className="w-[30%]"
             />
+          </div> */}
+          <div className="  p-6   flex justify-center items-center ">
+            <img src={mainLogoJili} alt="" className="w-[60%]" />
           </div>
           {/* Image Section */}
-          <div className="lg:w-full">
+          {/* <div className="lg:w-full">
             <img
               src={mobileImage}
               alt="Sign Up Illustration"
               className="w-full h-full cursor-pointer"
               // onClick={() => console.log("Image clicked")}
             />
-          </div>
+          </div> */}
 
           {/* Form Section */}
           <form onSubmit={handleSubmit} className="  text-xs  space-y-6">
-            {/* Step 0 - Referral and Currency */}
+            <div className="p-2">
+              <div className="bg-jili-bgSecondary bg-opacity-70 p-2 rounded flex flex-col gap-2  ">
+                <div className="space-y-6 relative">
+                  <div className="relative">
+                    <h3 className="text-white mb-1">{t.currency}</h3>
 
-            <div className="space-y-6 relative">
-              <div className="relative">
-                <h3 className="text-white mb-1">{t.currency}</h3>
-
-                <div
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="w-full p-2 bg-componentBgSecondary text-white border border-gray-400 rounded-md flex items-center justify-between cursor-pointer"
-                >
-                  <div className="flex items-center gap-2">
-                    <img
-                      src={
-                        options.find((opt) => opt.name === formData.currency)
-                          ?.image
-                      }
-                      alt={formData.currency}
-                      className="w-6 h-6"
-                    />
-                    {formData.currency}
-                  </div>
-                  <span className="text-white">&#9662;</span>
-                </div>
-
-                {dropdownOpen && (
-                  <div
-                    ref={dropdownRef}
-                    className="absolute w-full bg-black text-white rounded mt-1 shadow-md z-10"
-                  >
-                    {options.map((option, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center p-3 hover:text-textSecondaryColor bg-componentBgSecondary hover:bg-black cursor-pointer"
-                        onClick={() => handleCurrencySelect(option)}
-                      >
-                        <img
-                          src={option.image}
-                          alt={option.name}
-                          className="w-6 h-6 mr-2"
-                        />
-                        {option.name}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <div>
-              <h3>{t.username}</h3>
-              <input
-                type="text"
-                name="username"
-                placeholder={t.placeholderUsername}
-                className="w-full p-2 text-white bg-componentBgSecondary border border-gray-400 rounded-md"
-                value={formData.username}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="  flex flex-col">
-              <h3>{t.password}</h3>
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  placeholder={t.placeholderPassword}
-                  className="w-full p-2 text-white bg-componentBgSecondary border border-gray-400 rounded-md"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-                <div
-                  className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <FaEye className="text-textPrimary " />
-                  ) : (
-                    <FaEyeSlash className="text-textPrimary " />
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <h3>{t.confirmPassword}</h3>
-              <div className="relative">
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  name="confirmPassword"
-                  placeholder={t.placeholderPassword}
-                  className="w-full p-2 text-white bg-componentBgSecondary border border-gray-400 rounded-md"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                />
-                <div
-                  className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                >
-                  {showConfirmPassword ? (
-                    <FaEye className="text-textPrimary " />
-                  ) : (
-                    <FaEyeSlash className="text-textPrimary " />
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-4 relative">
-              <h3 className="mb-1">{t.phoneNumber}</h3>
-              <div className="flex gap-2">
-                <div className="relative w-1/3">
-                  <div
-                    onClick={() => setCodeDropdownOpen(!codeDropdownOpen)}
-                    className="p-2 bg-componentBgSecondary text-white border border-gray-400 rounded-md flex items-center justify-between cursor-pointer"
-                  >
-                    <div className="flex  items-center gap-2">
-                      <img
-                        src={
-                          countryCodes.find(
-                            (opt) => opt.code === formData.countryCode
-                          )?.flag
-                        }
-                        alt={formData.countryCode}
-                        className="w-3 h-3"
-                      />
-                      {formData.countryCode}
-                    </div>
-                    <span className="text-white">&#9662;</span>
-                  </div>
-
-                  {codeDropdownOpen && (
                     <div
-                      ref={codeDropdownRef}
-                      className="absolute w-full bg-black text-white rounded mt-1 shadow-md z-10"
+                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                      className="w-full p-2 bg-jili-bgSecondary  text-white  rounded-md flex items-center justify-between cursor-pointer"
                     >
-                      {countryCodes.map((option, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center p-3 hover:text-textSecondaryColor bg-componentBgSecondary  hover:bg-black cursor-pointer"
-                          onClick={() => handleCodeSelect(option)}
-                        >
-                          <img
-                            src={option.flag}
-                            alt={option.code}
-                            className="w-3 h-3 "
-                          />
-                          {option.code}
-                        </div>
-                      ))}
+                      <div className="flex items-center gap-2">
+                        <img
+                          src={
+                            options.find(
+                              (opt) => opt.name === formData.currency
+                            )?.image
+                          }
+                          alt={formData.currency}
+                          className="w-6 h-6"
+                        />
+                        {formData.currency}
+                      </div>
+                      <span className="text-white">&#9662;</span>
                     </div>
-                  )}
+
+                    {dropdownOpen && (
+                      <div
+                        ref={dropdownRef}
+                        className="absolute w-full bg-black  text-white rounded mt-1 shadow-md z-10"
+                      >
+                        {options.map((option, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center p-3 hover:text-textSecondaryColor  hover:bg-black cursor-pointer"
+                            onClick={() => handleCurrencySelect(option)}
+                          >
+                            <img
+                              src={option.image}
+                              alt={option.name}
+                              className="w-6 h-6 mr-2"
+                            />
+                            {option.name}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              {/* userName and password */}
+              <div className="bg-jili-bgSecondary bg-opacity-70 p-2 rounded flex flex-col gap-2 mt-2  ">
+                <div>
+                  <h3>{t.username}</h3>
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder={t.placeholderUsername}
+                    className="w-full p-2 text-white bg-jili-bgSecondary     rounded-md"
+                    value={formData.username}
+                    onChange={handleChange}
+                  />
                 </div>
 
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder={t.placeholder}
-                  className="w-full p-2 text-white bg-componentBgSecondary border border-gray-400 rounded-md"
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
+                <div className="  flex flex-col">
+                  <h3>{t.password}</h3>
+                  <div className="relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      placeholder={t.placeholderPassword}
+                      className="w-full p-2 text-white bg-jili-bgSecondary  rounded-md"
+                      value={formData.password}
+                      onChange={handleChange}
+                    />
+                    <div
+                      className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <FaEye className="text-textPrimary " />
+                      ) : (
+                        <FaEyeSlash className="text-textPrimary " />
+                      )}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div>
+              {/* <div className="flex flex-col">
+                <h3>{t.confirmPassword}</h3>
+                <div className="relative">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    name="confirmPassword"
+                    placeholder={t.placeholderPassword}
+                    className="w-full p-2 text-white bg-jili-bgSecondary rounded-md"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                  />
+                  <div
+                    className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  >
+                    {showConfirmPassword ? (
+                      <FaEye className="text-textPrimary " />
+                    ) : (
+                      <FaEyeSlash className="text-textPrimary " />
+                    )}
+                  </div>
+                </div>
+              </div> */}
+              <div className="bg-jili-bgSecondary bg-opacity-70 p-2 rounded flex flex-col gap-2 mt-2  ">
+                <div className="mb-4 relative">
+                  <h3 className="mb-1">{t.phoneNumber}</h3>
+                  <div className="flex gap-2">
+                    <div className="relative w-1/3">
+                      <div
+                        onClick={() => setCodeDropdownOpen(!codeDropdownOpen)}
+                        className="p-2 bg-jili-bgSecondary text-white  rounded-md flex items-center justify-between cursor-pointer"
+                      >
+                        <div className="flex  items-center gap-2">
+                          <img
+                            src={
+                              countryCodes.find(
+                                (opt) => opt.code === formData.countryCode
+                              )?.flag
+                            }
+                            alt={formData.countryCode}
+                            className="w-3 h-3"
+                          />
+                          {formData.countryCode}
+                        </div>
+                        <span className="text-white pl-4">&#9662;</span>
+                      </div>
+
+                      {codeDropdownOpen && (
+                        <div
+                          ref={codeDropdownRef}
+                          className="absolute w-full bg-black text-white rounded mt-1 shadow-md z-10"
+                        >
+                          {countryCodes.map((option, idx) => (
+                            <div
+                              key={idx}
+                              className="flex items-center p-3 hover:text-textSecondaryColor   hover:bg-black cursor-pointer"
+                              onClick={() => handleCodeSelect(option)}
+                            >
+                              <img
+                                src={option.flag}
+                                alt={option.code}
+                                className="w-3 h-3 "
+                              />
+                              {option.code}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder={t.placeholder}
+                      className="w-full p-2 text-white bg-jili-bgSecondary rounded-md"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* <div>
               <h3>{t.verificationCode}</h3>
               <div className="flex gap-2">
                 <input
@@ -798,33 +761,34 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
                   </button>
                 </div>
               </div>
+            </div> */}
             </div>
 
-            <div className="flex justify-between gap-6 text-sm items-center">
+            <div className="flex justify-between gap-6 text-sm items-center p-2">
               <div className="w-full">
                 <button
                   type="submit"
-                  className="bg-backgroundSecondaryColor w-full text-white px-6 py-2 rounded-md ml-auto"
+                  className="bg-backgroundV2Color w-full text-black px-6 py-2 rounded-md ml-auto"
                   disabled={loading}
                 >
                   {loading ? <SpinLoader /> : t.finalSubmit}
                 </button>
 
-                <div className="text-white py-4 flex  lg:flex-row items-center gap-2">
+                <div className=" pt-4 flex  lg:flex-row items-center justify-center text-xs text-jili-textThird gap-2">
                   <p>
                     {language === "en"
                       ? "Already have an account?"
                       : "ইতোমধ্যে একজন সদস্য ?"}
                   </p>
                   <p
-                    className="text-textSecondaryColor cursor-pointer underline"
+                    className="text-textSecondaryColorThree cursor-pointer underline"
                     onClick={handleLoginOpen}
                   >
                     {language === "en" ? "Log in" : "প্রবেশ করুন"}
                   </p>
                 </div>
 
-                <div className="flex  space-x-2 text-xs">
+                <div className="flex justify-center items-center text-jili-textThird  space-x-2 text-xs pb-2">
                   {/* <input
                     type="checkbox"
                     name="agreed"
@@ -835,7 +799,7 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
                     {t.legal}{" "}
                     <Link
                       to="/terms"
-                      className="text-textSecondaryColor font-semibold underline"
+                      className="text-textSecondaryColorThree font-semibold underline"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
