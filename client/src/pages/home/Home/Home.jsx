@@ -7,6 +7,9 @@ import CategoryMobileMenu from "@/components/home/CategoryMobileMenu/CategoryMob
 import HomeGames from "@/components/home/HomeGames/HomeGames";
 import MobileHome from "./MobileHome";
 import SlotGamesSection from "@/components/home/SlotGamesSection/SlotGamesSection";
+import BetJiliImageSlider from "./BetJiliImageSlider";
+import ImageSlider from "./ImageSlider";
+import DesktopSlider from "./DesktopSlider";
 
 const Home = () => {
   const cardSliders = [
@@ -16,7 +19,8 @@ const Home = () => {
   return (
     <>
       <div className="bg-primary-primaryColor hidden md:block">
-        <BannerSlider />
+        {/* <BannerSlider /> */}
+        <DesktopSlider/>
 
         <Container>
           <CategoryMobileMenu />
