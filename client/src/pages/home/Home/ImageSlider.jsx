@@ -61,6 +61,13 @@ const ImageSlider = () => {
                     className="mx-auto h-[150px] rounded-sm"
                   />
                 </div>
+                {/* <div className="grid grid-cols-1 ">
+                  <img
+                    src={`${import.meta.env.VITE_BASE_API_URL}${item?.image}`}
+                    alt={`${item.category} Image`}
+                    className="mx-auto h-[150px] rounded-sm"
+                  />
+                </div> */}
               </div>
             </div>
           ))}
