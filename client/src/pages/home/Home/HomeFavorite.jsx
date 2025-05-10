@@ -21,9 +21,9 @@ const HomeFavorite = () => {
     <div className=" mt-2 py-4">
       <div className="px-2">
         <h2 className="text-white border-l-4 px-2 border-textSecondaryColor text-base font-bold my-2">
-          {language === "en" ? "Favorites":"প্রিয় "}
+          {language === "en" ? "Favorites" : "প্রিয় "}
         </h2>
-        <div className="flex flex-row gap-3   overflow-x-auto ">
+        <div className="flex flex-row gap-3 overflow-x-auto">
           {images.map((image, index) => (
             <div key={index} className="w-full min-w-[250px]">
               <img src={image} alt="" className="w-full rounded-lg " />

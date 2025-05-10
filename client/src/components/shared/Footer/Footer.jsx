@@ -5,9 +5,9 @@ import FooterTop from "./FooterTop";
 
 const Footer = () => {
   return (
-    <div className="bg-primary-primaryColor ">
+    <div className="bg-jili-bgBlack ">
       <Container>
-        <FooterTop />
+        {/* <FooterTop /> */}
         <FooterMiddle />
         <FooterBottom />
       </Container>
