@@ -67,7 +67,7 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
   return (
     <div className="">
       {/* large Device */}
-      <div className="bg-primary-primaryColor">
+      {/* <div className="bg-primary-primaryColor">
         <div className="py-5 hidden md:block mx-auto lg:max-w-6xl  text-white">
           <div className="flex flex-col lg:items-center lg:flex-row gap-4 lg:gap-0  p-8">
             <div className="lg:w-full lg:h-[600px]">
@@ -79,7 +79,7 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
             </div>
 
             <div className="lg:w-2/3 lg:h-[800px] bg-componentBgPrimary text-white p-6 rounded-md space-y-6">
-              {/* Tabs */}
+              
               <div className="flex justify-between border-b border-white border-opacity-20 space-x-4 mb-4">
                 <button
                   onClick={() => setActiveTab("email")}
@@ -107,7 +107,7 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
                 <div>
                   <h3 className="text-lg text-textSecondaryColor">{t.title}</h3>
                 </div>
-                {/* Username */}
+                
                 <div>
                   <label>{t.username}</label>
                   <input
@@ -120,7 +120,7 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
                   />
                 </div>
 
-                {/* Email Tab */}
+               
                 {activeTab === "email" && (
                   <>
                     <div>
@@ -142,12 +142,12 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
                   </>
                 )}
 
-                {/* SMS Tab */}
+               
                 {activeTab === "sms" && (
                   <div>
                     <label>{t.phoneNumber}</label>
                     <div className="flex gap-2">
-                      {/* Country Code Dropdown */}
+                      
                       <div className="relative w-1/3">
                         <div
                           onClick={() => setCodeDropdownOpen(!codeDropdownOpen)}
@@ -188,7 +188,7 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
                         )}
                       </div>
 
-                      {/* Phone Input */}
+                     
                       <input
                         name="phone"
                         type="tel"
@@ -206,7 +206,7 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
                   </div>
                 )}
 
-                {/* Submit Button */}
+                
                 <button
                   type="submit"
                   className="w-full text-white bg-primary-primaryColor py-2 rounded-md"
@@ -217,11 +217,11 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
             </div>
           </div>
         </div>
-      </div>
-      {/* small device */}
-      <div className=" md:hidden min-h-screen bg-jili-bgBlack text-white ">
-        <div className="flex flex-col lg:flex-row gap-4 lg:border-4 border-textPrimary ">
-          <div className="lg:w-2/3 text-xs text-white  rounded-md space-y-6">
+      </div> */}
+      
+      <div className="  md:pb-28  h-screen md:h-auto   mx-auto lg:max-w-6xl text-xs bg-jili-bgBlack text-white ">
+        <div className="flex flex-col  gap-4  ">
+          <div className=" text-xs text-white  rounded-md space-y-6">
             {/* Tabs */}
             <div className="flex justify-between bg-primary-primaryColor border-b border-white border-opacity-20 space-x-4 mb-4">
               <button
@@ -291,7 +291,7 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
                     className="flex justify-end"
                     onClick={handleLoginOpenTwo}
                   >
-                    <p className="text-textSecondaryColor">{t.back}</p>
+                    <p className="text-textSecondaryColor cursor-pointer">{t.back}</p>
                   </div>
                      
                 </div>

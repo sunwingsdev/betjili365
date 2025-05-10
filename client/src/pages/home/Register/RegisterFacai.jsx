@@ -546,9 +546,9 @@ const RegisterFacai = ({ handleLoginOpen, setIsModalOpen }) => {
         </div>
       </div> */}
 
-      {/* phoneDevice */}
-      <div className="pb-14 md:hidden  mx-auto lg:max-w-6xl bg-jili-bgBlack text-white">
-        <div className="flex flex-col lg:flex-row gap-4 lg:border-4 border-textPrimary ">
+      
+      <div className="pb-14  md:h-[450px]  mx-auto lg:max-w-6xl bg-jili-bgBlack text-white">
+        <div className="flex flex-col  gap-4   ">
           {/* <div className="     flex justify-center items-center ">
             <img
               src={`${import.meta.env.VITE_BASE_API_URL}${

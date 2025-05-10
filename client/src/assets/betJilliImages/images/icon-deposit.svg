@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>leftmenu/funds/icon-deposit</title>
+    <defs>
+        <linearGradient x1="50%" y1="1.33055874e-13%" x2="50%" y2="104.53891%" id="linearGradient-1">
+            <stop stop-color="#F5DB21" stop-opacity="0.7" offset="0%"></stop>
+            <stop stop-color="#F5DB21" stop-opacity="0.995478029" offset="100%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+            <stop stop-color="#F5DB21" stop-opacity="0.995478029" offset="100%"></stop>
+        </linearGradient>
+        <path d="M3.00510638,8.99744681 C3.00510638,8.20085106 3.32170213,7.44 3.88340426,6.87829787 C4.44510638,6.31659574 5.21106383,6 6.00255319,6 L24.0025532,6 C24.7991489,6 25.56,6.31659574 26.1217021,6.87829787 C26.6834043,7.44 27,8.20595745 27,8.99744681 L27,16.4987234 L3,16.4987234 L3,8.99744681 L3.00510638,8.99744681 Z M20.2544681,10.4987234 C20.0553191,10.4987234 19.866383,10.5753191 19.7234043,10.7182979 C19.5804255,10.8612766 19.5038298,11.0502128 19.5038298,11.2493617 L19.5038298,12.7506383 C19.5038298,12.9497872 19.5804255,13.1387234 19.7234043,13.2817021 C19.866383,13.4246809 20.0553191,13.5012766 20.2544681,13.5012766 L23.2570213,13.5012766 C23.4561702,13.5012766 23.6451064,13.4246809 23.7880851,13.2817021 C23.9310638,13.1387234 24.0076596,12.9497872 24.0076596,12.7506383 L24.0076596,11.2493617 C24.0076596,11.0502128 23.9310638,10.8612766 23.7880851,10.7182979 C23.6451064,10.5753191 23.4561702,10.4987234 23.2570213,10.4987234 L20.2544681,10.4987234 Z M3.00510638,19.5012766 L3.00510638,21.0025532 C3.00510638,21.7991489 3.32170213,22.56 3.88340426,23.1217021 C4.44510638,23.6834043 5.21106383,24 6.00255319,24 L24.0025532,24 C24.7991489,24 25.56,23.6834043 26.1217021,23.1217021 C26.6834043,22.56 27,21.7940426 27,21.0025532 L27,19.5012766 L3.00510638,19.5012766 Z" id="path-2"></path>
+        <filter x="-16.7%" y="-11.1%" width="133.3%" height="144.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="leftmenu/funds/icon-deposit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Shape">
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+            <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+        </g>
+    </g>
+</svg>

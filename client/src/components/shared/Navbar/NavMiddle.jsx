@@ -12,6 +12,7 @@ import { logout, setSingleUser } from "@/redux/slices/authSlice";
 import { useToasts } from "react-toast-notifications";
 import { useGetHomeControlsQuery } from "@/redux/features/allApis/homeControlApi/homeControlApi";
 import { useLazyGetUserByIdQuery } from "@/redux/features/allApis/usersApi/usersApi";
+import depositImage from "../../../assets/betJilliImages/images/icon-deposit.svg";
 import { IoReload } from "react-icons/io5";
 import SpinLoader from "../loaders/Spinloader";
 
@@ -35,7 +36,13 @@ const sponsors = [
   },
 ];
 
-const NavMiddle = ({ navItems }) => {
+const NavMiddle = ({
+  navItems,
+  openLoginModal,
+  openRegisterModal,
+  openBDTFacaiModal,
+  openDWModal
+}) => {
   const { data: homeControls } = useGetHomeControlsQuery();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -228,31 +235,49 @@ const NavMiddle = ({ navItems }) => {
             </div>
           ) : (
             <div className="md:flex items-center gap-8 text-white hidden">
-              <Link to="/login">
-                {/* <p
+              {/* <Link to="/login"> */}
+              {/* <p
                 className="px-7 py-1  hover:border-[#ffb405] hover:border border border-transparent rounded cursor-pointer"
                 // onClick={handleModalOpen}
               >
                 লগ ইন
               </p> */}
-                <p
-                  className="px-7 py-1 bg-white-to-darkblue   hover:border border border-transparent rounded cursor-pointer"
-                  // onClick={handleModalOpen}
-                >
-                  লগ ইন
-                </p>
-              </Link>
+              <div
+                className="flex items-center gap-2 px-7 py-1 rounded cursor-pointer bg-jili-bgPrimary hover:border border border-transparent"
+                onClick={openDWModal}
+              >
+                <div
+                  className="w-6 h-6"
+                  style={{
+                    WebkitMaskImage: `url(${depositImage})`,
+                    maskImage: `url(${depositImage})`,
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskSize: "contain",
+                    maskSize: "contain",
+                    backgroundColor: "black", // Black masked icon
+                  }}
+                ></div>
+                <span className="text-black">ডিপোজিট</span>
+              </div>
+              <p
+                className="px-7 py-1 bg-white-to-darkblue   hover:border border border-transparent rounded cursor-pointer"
+                onClick={openLoginModal}
+              >
+                লগ ইন
+              </p>
+              {/* </Link> */}
               {/* <Link to="/register">
                 <PrimaryButton>সাইন আপ</PrimaryButton>
               </Link> */}
-              <Link to="/register">
-                <p
-                  className="px-7 py-1 bg-gold-gradient   hover:border border border-transparent rounded cursor-pointer"
-                  // onClick={handleModalOpen}
-                >
-                  সাইন আপ
-                </p>
-              </Link>
+              {/* <Link to="/register"> */}
+              <p
+                className="px-7 py-1 bg-gold-gradient   hover:border border border-transparent rounded cursor-pointer"
+                onClick={openRegisterModal}
+              >
+                সাইন আপ
+              </p>
+              {/* </Link> */}
             </div>
           )}
 

@@ -1,23 +1,20 @@
 import { useContext } from "react";
 import { RxCross2 } from "react-icons/rx";
-import LoginFacai from "./LoginFacai";
 import { LanguageContext } from "@/Context/LanguageContext";
+import DepositWithdrawTabs from "./DepositWithdrawTabs/DepositWithdrawTabs";
 
-const LoginModal = ({
-  isModalLoginOpen,
-  setIsModalLoginOpen,
-  setIsModalOpen,
+const DepositWithdrawModal = ({
+  isModalDWOpen,
+  setIsModalDWOpen,
+//   setIsModalOpen,
   setIsModalForgetOpen,
 }) => {
   const { language } = useContext(LanguageContext);
 
-  const handleRegisterOpen = () => {
-    setIsModalOpen(true);
-    setIsModalLoginOpen(false);
-  };
+  
 
   const handleBackgroundClick = () => {
-    setIsModalLoginOpen(false);
+    setIsModalDWOpen(false);
   };
 
   return (
@@ -31,12 +28,12 @@ const LoginModal = ({
         onClick={(e) => e.stopPropagation()} // Prevent background click from closing when clicking inside
       >
         {/* Header */}
-        <div className="flex items-center justify-between py-2 px-4 bg-primary-primaryColor">
+        <div className="flex items-center  justify-between py-2 px-4 bg-primary-primaryColor">
           <h2 className="text-center w-full font-semibold">
-            {language === "en" ? "Login" : "লগ ইন"}
+            {language === "en" ? "My Wallet" : "মাই ওয়ালেট"}
           </h2>
           <button
-            onClick={() => setIsModalLoginOpen(false)}
+            onClick={() => setIsModalDWOpen(false)}
             className="text-white text-xl"
           >
             <RxCross2 />
@@ -44,15 +41,12 @@ const LoginModal = ({
         </div>
 
         {/* Body */}
-        <div className="flex-1 md:h-auto overflow-y-auto ">
-          <LoginFacai
-            handleRegisterOpen={handleRegisterOpen}
-            setIsModalForgetOpen={setIsModalForgetOpen}
-          />
+        <div className="flex-1   ">
+          <DepositWithdrawTabs/>
         </div>
       </div>
     </div>
   );
 };
 
-export default LoginModal;
+export default DepositWithdrawModal;

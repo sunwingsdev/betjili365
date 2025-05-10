@@ -3,7 +3,13 @@ import NavBottom from "./NavBottom";
 import NavMiddle from "./NavMiddle";
 import NavTop from "./NavTop";
 
-const Navbar = ({ menuItems }) => {
+const Navbar = ({
+  menuItems,
+  openLoginModal,
+  openRegisterModal,
+  openBDTFacaiModal,
+  openDWModal
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
@@ -67,8 +73,14 @@ const Navbar = ({ menuItems }) => {
       }`}
     >
       {/* <NavTop /> */}
-      <NavMiddle navItems={navItems} />
-      {/* <NavBottom navItems={mergedItems} /> */}
+      <NavMiddle
+        navItems={navItems}
+        openLoginModal={openLoginModal}
+        openRegisterModal={openRegisterModal}
+        openBDTFacaiModal={openBDTFacaiModal}
+        openDWModal={openDWModal}
+      />
+      <NavBottom navItems={mergedItems} />
     </div>
   );
 };

@@ -36,7 +36,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          // primaryColorTwo: "#191e32",
+           primaryColorTwo: "#191e32",
           // primaryColor: "#111421",
           primaryColor: "#212121",
           primaryColorJili: "#221919",
@@ -78,7 +78,8 @@ export default {
           textPrimary: "#FFE400", 
           textSecondary: "#F5DB21",
           textThird: "#999999",
-          bgForm:"#4d4d4d" 
+          bgForm:"#4d4d4d" ,
+          bgdWTabsColor:"#2d2d2d",
         },
       },
 
