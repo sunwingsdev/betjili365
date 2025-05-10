@@ -17,12 +17,12 @@ export default {
       colors: {
         background: "hsl(var(--background))",
         componentBgPrimary:"#222843",
-        componentBgSecondary:"#243254",
+        // componentBgSecondary:"#243254",
         redBgColor:"#91001F99",
         backgroundSecondaryColor: "#C9A33D",
-        backgroundV2Color:"#ffE116",
+        backgroundV2Color: "#ffE116",
         formBgColor: "rgba(255, 255, 255, 0.3)",
-        AffiliatePrimaryBg:"#212335",
+        AffiliatePrimaryBg: "#212335",
         bottomNavBgColor: "#2a3254",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -36,7 +36,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          primaryColorTwo: "#191e32",
+          // primaryColorTwo: "#191e32",
           // primaryColor: "#111421",
           primaryColor: "#212121",
           primaryColorJili: "#221919",
@@ -60,8 +60,8 @@ export default {
         border: "hsl(var(--border))",
         textSecondaryColor: "#C9A33D",
         textSecondaryColorTwo: "#d7b533",
-        textSecondaryColorThree:"#ffE116",
-        textRedColor:"#ff086b",
+        textSecondaryColorThree: "#ffE116",
+        textRedColor: "#ff086b",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         chart: {
@@ -76,16 +76,20 @@ export default {
           bgBlack:"#000000", 
           bgSecondary: "#333333", 
           textPrimary: "#FFE400", 
-          textSecondary: "#F5DB21", 
+          textSecondary: "#F5DB21",
+          textThird: "#999999",
+          bgForm:"#4d4d4d" 
         },
       },
-      
-      backgroundImage: {
-        'white-to-darkblue': 'linear-gradient(to right, #2a3254 0%, #445187 15%, #445187 30%, #2a3254 55%, #2a3254 100%)',
-        'white-to-gold': 'linear-gradient(to right, rgba(255,255,255,0.2), #C9A33Dcc)',
-        // 'gold-gradient': 'linear-gradient(to right, #d4b665, #a46c0d 50%)',
-        'gold-gradient': 'linear-gradient(to right, #d4b665, #a46c0d 50%, #C9A33D)',
 
+      backgroundImage: {
+        "white-to-darkblue":
+          "linear-gradient(to right, #2a3254 0%, #445187 15%, #445187 30%, #2a3254 55%, #2a3254 100%)",
+        "white-to-gold":
+          "linear-gradient(to right, rgba(255,255,255,0.2), #C9A33Dcc)",
+        // 'gold-gradient': 'linear-gradient(to right, #d4b665, #a46c0d 50%)',
+        "gold-gradient":
+          "linear-gradient(to right, #d4b665, #a46c0d 50%, #C9A33D)",
       },
     },
   },

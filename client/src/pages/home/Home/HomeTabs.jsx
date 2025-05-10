@@ -61,7 +61,7 @@ const HomeTabs = () => {
     <div className=" ">
       {/* Category Tabs */}
       <div className="flex sticky top-0 bg-jili-bgPrimary z-10 flex-row items-center px-2 gap-x-4 overflow-x-auto">
-        {/* {filteredCategories?.map((category) => (
+        {filteredCategories?.map((category) => (
           <motion.div
             key={category._id}
             className={`flex flex-col text-[10px] items-center cursor-pointer relative 
@@ -82,19 +82,17 @@ const HomeTabs = () => {
             <img
               src={`${import.meta.env.VITE_BASE_API_URL}${category.image}`}
               alt={category.name}
-              className="w-5"
+              className="w-7 mb-1"
             />
-             
+
             <p
-              className={`  ${
-                category.name === activeTab ? "font-bold" : ""
-              }`}
+              className={`  ${category.name === activeTab ? "font-bold" : ""}`}
             >
               {category.name}
             </p>
           </motion.div>
-        ))} */}
-        {filteredCategories?.map((category, index) => (
+        ))}
+        {/* {filteredCategories?.map((category, index) => (
           <motion.div
             key={category._id}
             className={`flex flex-col text-[10px] items-center cursor-pointer relative 
@@ -132,7 +130,7 @@ const HomeTabs = () => {
               {category.name}
             </p>
           </motion.div>
-        ))}
+        ))} */}
       </div>
 
       {/* Selected Category Title */}
@@ -150,35 +148,6 @@ const HomeTabs = () => {
             transition={{ duration: 0.5 }}
           >
             {
-              // activeTab === "এক্সক্লুসিভ" ? (
-              //   // এক্সক্লুসিভ হলে গেম দেখাবে
-              //   filteredGames?.length > 0 ? (
-              //     <div className="grid bg-componentBgSecondary grid-cols-3 justify-items-center">
-              //       {filteredGames.map((game) => (
-              //         <Link
-              //           to={`/category/demo/${game._id}`}
-              //           key={game._id}
-              //           className="flex flex-col p-2 w-full justify-center items-center"
-              //         >
-              //           <img
-              //             src={`${import.meta.env.VITE_BASE_API_URL}${
-              //               game.image
-              //             }`}
-              //             alt={game.category}
-              //             className="w-28 h-38 m-2 rounded-md object-cover"
-              //           />
-              //           {game?.name && (
-              //             <p className="text-white text-[10px] whitespace-nowrap">
-              //               {game.name}
-              //             </p>
-              //           )}
-              //         </Link>
-              //       ))}
-              //     </div>
-              //   ) : (
-              //     <p className="text-white">No exclusive games available.</p>
-              //   )
-              // ) :
               // অন্যান্য ক্যাটেগরির জন্য সাব-ক্যাটেগরি দেখাবে
               filteredSubCategories?.length > 0 ? (
                 <div className="grid grid-cols-4 gap-1 justify-items-center px-2">

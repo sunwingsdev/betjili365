@@ -203,7 +203,7 @@ const FooterMiddle = () => {
   ];
   return (
     <div className="relative flex flex-col">
-      <div className="md:flex items-center justify-between gap-3 hidden">
+      {/* <div className="md:flex items-center justify-between gap-3 hidden">
         {services.map((service) => (
           <div className="flex items-center gap-4" key={service.id}>
             {service.imageRoute ? (
@@ -224,7 +224,7 @@ const FooterMiddle = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
       <div className="order-3 flex flex-col-reverse md:flex-row items-start md:gap-16">
         <HeadingContent heading="দায়িত্বশীল গেমিং" contents={gamingContents} />
         <HeadingContent

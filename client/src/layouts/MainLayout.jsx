@@ -14,6 +14,7 @@ import RegisterModal from "@/pages/home/Register/RegisterModal";
 import LoginModal from "@/pages/home/Login/LoginModal";
 import ForgetPasswordModal from "@/pages/home/ForgetPassword/ForgetPasswordModel";
 import BDTModalFacai from "@/components/BDTModalFacai/BDTModalFacai";
+import MobileColar from "@/pages/home/Home/MobileColar";
 
 const MainLayout = () => {
   const navigation = useNavigation();
@@ -56,6 +57,8 @@ const MainLayout = () => {
     ),
   }));
 
+  console.log("mm", menuItems);
+
   return (
     <>
       <div>
@@ -69,7 +72,12 @@ const MainLayout = () => {
         {!hideCommonComponents && <MenuMobile />}
       </div>
       <div className="relative block md:hidden">
-        <Header menuItems={menuItems} />
+        <Header
+          menuItems={menuItems}
+          openLoginModal={() => setIsModalLoginOpen(true)}
+          openRegisterModal={() => setIsModalOpen(true)}
+          openBDTFacaiModal={() => setIsOpenLanguage(true)}
+        />
         <main>
           <Outlet context={{ menuItems }} />
         </main>
@@ -102,17 +110,14 @@ const MainLayout = () => {
           isModalLoginOpen={isModalLoginOpen}
           setIsModalLoginOpen={setIsModalLoginOpen}
           setIsModalOpen={setIsModalOpen}
-          setIsModalForgetOpen = {setIsModalForgetOpen}
+          setIsModalForgetOpen={setIsModalForgetOpen}
         />
       )}
       {isModalForgetOpen && (
         <ForgetPasswordModal
-        isModalForgetOpen={isModalForgetOpen}
-         setIsModalForgetOpen = {setIsModalForgetOpen}
-
-          
+          isModalForgetOpen={isModalForgetOpen}
+          setIsModalForgetOpen={setIsModalForgetOpen}
           setIsModalLoginOpen={setIsModalLoginOpen}
-          
         />
       )}
     </>

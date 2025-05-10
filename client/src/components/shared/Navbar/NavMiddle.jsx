@@ -99,7 +99,7 @@ const NavMiddle = ({ navItems }) => {
   };
 
   return (
-    <div className="bg-primary-primaryColorTwo py-3">
+    <div className="bg-primary-primaryColor py-3">
       <Container>
         <div className="flex items-center justify-between text-[#14815f]">
           {/* Menu for mobile */}
@@ -229,30 +229,29 @@ const NavMiddle = ({ navItems }) => {
           ) : (
             <div className="md:flex items-center gap-8 text-white hidden">
               <Link to="/login">
-              {/* <p
+                {/* <p
                 className="px-7 py-1  hover:border-[#ffb405] hover:border border border-transparent rounded cursor-pointer"
                 // onClick={handleModalOpen}
               >
                 লগ ইন
               </p> */}
-              <p
-                className="px-7 py-1 bg-white-to-darkblue   hover:border border border-transparent rounded cursor-pointer"
-                // onClick={handleModalOpen}
-              >
-                লগ ইন
-              </p>
+                <p
+                  className="px-7 py-1 bg-white-to-darkblue   hover:border border border-transparent rounded cursor-pointer"
+                  // onClick={handleModalOpen}
+                >
+                  লগ ইন
+                </p>
               </Link>
               {/* <Link to="/register">
                 <PrimaryButton>সাইন আপ</PrimaryButton>
               </Link> */}
               <Link to="/register">
-                
                 <p
-                className="px-7 py-1 bg-gold-gradient   hover:border border border-transparent rounded cursor-pointer"
-                // onClick={handleModalOpen}
-              >
-               সাইন আপ
-              </p>
+                  className="px-7 py-1 bg-gold-gradient   hover:border border border-transparent rounded cursor-pointer"
+                  // onClick={handleModalOpen}
+                >
+                  সাইন আপ
+                </p>
               </Link>
             </div>
           )}

@@ -3,7 +3,7 @@ import signUpImage from "../../../assets/register/image_157256.jpg";
 import { LanguageContext } from "@/Context/LanguageContext";
 import bdImage from "../../../assets/v2/BD.png";
 import INImage from "../../../assets/v2/IN.png";
-import mainLogo from "../../../assets/v2/loaderLogo.png";
+import mainLogo from "../../../assets/betJilliImages/images/member-logo.png";
 import { Link } from "react-router-dom";
 
 const countryCodes = [
@@ -68,205 +68,215 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
     <div className="">
       {/* large Device */}
       <div className="bg-primary-primaryColor">
-       
-      <div className="py-5 hidden md:block mx-auto lg:max-w-6xl  text-white">
-        <div className="flex flex-col lg:items-center lg:flex-row gap-4 lg:gap-0  p-8">
-          <div className="lg:w-full lg:h-[600px]">
-            <img
-              src={signUpImage}
-              alt="Sign Up Illustration"
-              className="w-full h-full cursor-pointer"
-            />
-          </div>
-
-          <div className="lg:w-2/3 lg:h-[800px] bg-componentBgPrimary text-white p-6 rounded-md space-y-6">
-            {/* Tabs */}
-            <div className="flex justify-between border-b border-white border-opacity-20 space-x-4 mb-4">
-              <button
-                onClick={() => setActiveTab("email")}
-                className={`px-4 py-2 w-full text-center ${
-                  activeTab === "email"
-                    ? "text-textSecondaryColor border-b-2 border-textSecondaryColor"
-                    : "text-white"
-                }`}
-              >
-                E-mail
-              </button>
-              <button
-                onClick={() => setActiveTab("sms")}
-                className={`px-4 py-2 w-full text-center ${
-                  activeTab === "sms"
-                    ? "text-textSecondaryColor border-b-2 border-textSecondaryColor"
-                    : "text-white"
-                }`}
-              >
-                SMS
-              </button>
+        <div className="py-5 hidden md:block mx-auto lg:max-w-6xl  text-white">
+          <div className="flex flex-col lg:items-center lg:flex-row gap-4 lg:gap-0  p-8">
+            <div className="lg:w-full lg:h-[600px]">
+              <img
+                src={signUpImage}
+                alt="Sign Up Illustration"
+                className="w-full h-full cursor-pointer"
+              />
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <h3 className="text-lg text-textSecondaryColor">{t.title}</h3>
-              </div>
-              {/* Username */}
-              <div>
-                <label>{t.username}</label>
-                <input
-                  name="username"
-                  type="text"
-                  value={formData.username}
-                  onChange={handleChange}
-                  placeholder={t.placeholderUsername}
-                  className="w-full p-2 text-white bg-primary-primaryColor rounded-md border border-gray-400"
-                />
+            <div className="lg:w-2/3 lg:h-[800px] bg-componentBgPrimary text-white p-6 rounded-md space-y-6">
+              {/* Tabs */}
+              <div className="flex justify-between border-b border-white border-opacity-20 space-x-4 mb-4">
+                <button
+                  onClick={() => setActiveTab("email")}
+                  className={`px-4 py-2 w-full text-center ${
+                    activeTab === "email"
+                      ? "text-textSecondaryColor border-b-2 border-textSecondaryColor"
+                      : "text-white"
+                  }`}
+                >
+                  E-mail
+                </button>
+                <button
+                  onClick={() => setActiveTab("sms")}
+                  className={`px-4 py-2 w-full text-center ${
+                    activeTab === "sms"
+                      ? "text-textSecondaryColor border-b-2 border-textSecondaryColor"
+                      : "text-white"
+                  }`}
+                >
+                  SMS
+                </button>
               </div>
 
-              {/* Email Tab */}
-              {activeTab === "email" && (
-                <>
-                  <div>
-                    <label>{t.email}</label>
-                    <input
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder={t.placeholderEmail}
-                      className="w-full p-2 text-white bg-primary-primaryColor rounded-md border border-gray-400"
-                    />
-                  </div>
-                  <div className="flex justify-end">
-                    <Link to="/login">
-                      <p className="text-textSecondaryColor">{t.back}</p>
-                    </Link>
-                  </div>
-                </>
-              )}
-
-              {/* SMS Tab */}
-              {activeTab === "sms" && (
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label>{t.phoneNumber}</label>
-                  <div className="flex gap-2">
-                    {/* Country Code Dropdown */}
-                    <div className="relative w-1/3">
-                      <div
-                        onClick={() => setCodeDropdownOpen(!codeDropdownOpen)}
-                        className="p-2 text-white bg-primary-primaryColor border border-gray-400 rounded-md flex items-center justify-between cursor-pointer"
-                      >
-                        <img
-                          src={
-                            countryCodes.find(
-                              (c) => c.code === formData.countryCode
-                            )?.flag
-                          }
-                          alt="Flag"
-                          className="w-5 h-5 mr-1"
-                        />
-                        {formData.countryCode}
+                  <h3 className="text-lg text-textSecondaryColor">{t.title}</h3>
+                </div>
+                {/* Username */}
+                <div>
+                  <label>{t.username}</label>
+                  <input
+                    name="username"
+                    type="text"
+                    value={formData.username}
+                    onChange={handleChange}
+                    placeholder={t.placeholderUsername}
+                    className="w-full p-2 text-white bg-primary-primaryColor rounded-md border border-gray-400"
+                  />
+                </div>
+
+                {/* Email Tab */}
+                {activeTab === "email" && (
+                  <>
+                    <div>
+                      <label>{t.email}</label>
+                      <input
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder={t.placeholderEmail}
+                        className="w-full p-2 text-white bg-primary-primaryColor rounded-md border border-gray-400"
+                      />
+                    </div>
+                    <div className="flex justify-end">
+                      <Link to="/login">
+                        <p className="text-textSecondaryColor">{t.back}</p>
+                      </Link>
+                    </div>
+                  </>
+                )}
+
+                {/* SMS Tab */}
+                {activeTab === "sms" && (
+                  <div>
+                    <label>{t.phoneNumber}</label>
+                    <div className="flex gap-2">
+                      {/* Country Code Dropdown */}
+                      <div className="relative w-1/3">
+                        <div
+                          onClick={() => setCodeDropdownOpen(!codeDropdownOpen)}
+                          className="p-2 text-white bg-primary-primaryColor border border-gray-400 rounded-md flex items-center justify-between cursor-pointer"
+                        >
+                          <img
+                            src={
+                              countryCodes.find(
+                                (c) => c.code === formData.countryCode
+                              )?.flag
+                            }
+                            alt="Flag"
+                            className="w-5 h-5 mr-1"
+                          />
+                          {formData.countryCode}
+                        </div>
+
+                        {codeDropdownOpen && (
+                          <div
+                            ref={dropdownRef}
+                            className="absolute z-10 w-full text-white bg-primary-primaryColor rounded shadow-md mt-1"
+                          >
+                            {countryCodes.map((option, idx) => (
+                              <div
+                                key={idx}
+                                className="p-2 flex items-center gap-2 cursor-pointer hover:bg-gray-800 hover:text-textSecondaryColor"
+                                onClick={() => handleCodeSelect(option)}
+                              >
+                                <img
+                                  src={option.flag}
+                                  alt="flag"
+                                  className="w-5 h-5"
+                                />
+                                {option.code}
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
 
-                      {codeDropdownOpen && (
-                        <div
-                          ref={dropdownRef}
-                          className="absolute z-10 w-full text-white bg-primary-primaryColor rounded shadow-md mt-1"
-                        >
-                          {countryCodes.map((option, idx) => (
-                            <div
-                              key={idx}
-                              className="p-2 flex items-center gap-2 cursor-pointer hover:bg-gray-800 hover:text-textSecondaryColor"
-                              onClick={() => handleCodeSelect(option)}
-                            >
-                              <img
-                                src={option.flag}
-                                alt="flag"
-                                className="w-5 h-5"
-                              />
-                              {option.code}
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                      {/* Phone Input */}
+                      <input
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="01xxxxxxxxx"
+                        className="w-full p-2 text-white bg-primary-primaryColor rounded-md border border-gray-400"
+                      />
                     </div>
-
-                    {/* Phone Input */}
-                    <input
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="01xxxxxxxxx"
-                      className="w-full p-2 text-white bg-primary-primaryColor rounded-md border border-gray-400"
-                    />
+                    <div className="flex justify-end pt-2">
+                      <Link to="/login">
+                        <p className="text-textSecondaryColor">{t.back}</p>
+                      </Link>
+                    </div>
                   </div>
-                  <div className="flex justify-end pt-2">
-                    <Link to="/login">
-                      <p className="text-textSecondaryColor">{t.back}</p>
-                    </Link>
-                  </div>
-                </div>
-              )}
+                )}
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                className="w-full text-white bg-primary-primaryColor py-2 rounded-md"
-              >
-                {t.reset}
-              </button>
-            </form>
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full text-white bg-primary-primaryColor py-2 rounded-md"
+                >
+                  {t.reset}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-       
-      </div>
       {/* small device */}
-      <div className=" md:hidden min-h-screen bg-componentBgPrimary text-white ">
+      <div className=" md:hidden min-h-screen bg-jili-bgBlack text-white ">
         <div className="flex flex-col lg:flex-row gap-4 lg:border-4 border-textPrimary ">
           <div className="lg:w-2/3 text-xs text-white  rounded-md space-y-6">
             {/* Tabs */}
-            <div className="flex justify-between bg-backgroundSecondaryColor border-b border-white border-opacity-20 space-x-4 mb-4">
+            <div className="flex justify-between bg-primary-primaryColor border-b border-white border-opacity-20 space-x-4 mb-4">
               <button
                 onClick={() => setActiveTab("email")}
-                className={`px-4 py-2 w-full text-white text-center ${
-                  activeTab === "email" ? "border-b-2 border-white" : ""
+                className={`px-4 py-2 w-full text-textSecondaryColorThree text-center ${
+                  activeTab === "email"
+                    ? "border-b-2 border-textSecondaryColorThree"
+                    : ""
                 }`}
               >
                 E-mail
               </button>
               <button
                 onClick={() => setActiveTab("sms")}
-                className={`px-4 py-2 w-full text-white text-center ${
-                  activeTab === "sms" ? " border-b-2 border-white" : ""
+                className={`px-4 py-2 w-full text-textSecondaryColorThree text-center ${
+                  activeTab === "sms"
+                    ? " border-b-2 border-textSecondaryColorThree"
+                    : ""
                 }`}
               >
                 SMS
               </button>
             </div>
             <div className="     flex justify-center items-center ">
-              <img src={mainLogo} alt="" className="w-[30%]" />
+              <img src={mainLogo} alt="" className="w-[60%]" />
             </div>
-            <form onSubmit={handleSubmit} className="space-y-4 px-2">
-              <div>
+
+            <form onSubmit={handleSubmit} className=" px-2">
+              {/* <div>
                 <h3 className="text-lg text-textSecondaryColor">{t.title}</h3>
-              </div>
+              </div> */}
               {/* Username */}
-              <div className="flex gap-4 bg-componentBgSecondary w-full p-2 text-white  rounded-md border border-gray-400">
-                <label>{t.username}</label>
-                <input
-                  name="username"
-                  type="text"
-                  value={formData.username}
-                  onChange={handleChange}
-                  placeholder={t.placeholderUsername}
-                  className=" bg-componentBgSecondary "
-                />
+              <div className="px-2">
+                <div className="bg-jili-bgSecondary bg-opacity-70 p-2 rounded-t-md ">
+                  <div className="flex flex-col gap-1  w-full  text-white  rounded-md ">
+                    <label>{t.username}</label>
+                    <input
+                      name="username"
+                      type="text"
+                      value={formData.username}
+                      onChange={handleChange}
+                      placeholder={t.placeholderUsername}
+                      className="w-full p-2 text-white bg-jili-bgSecondary     rounded-md  "
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Email Tab */}
               {activeTab === "email" && (
                 <>
-                  <div className="flex gap-4 bg-componentBgSecondary w-full p-2 text-white  rounded-md border border-gray-400">
+                <div className="px-2">
+                <div className="bg-jili-bgSecondary bg-opacity-70 p-2 rounded-b-md">
+                 
+                  <div className="flex flex-col gap-1  w-full  text-white  rounded-md ">
                     <label className="w-[30%]">{t.email}</label>
                     <input
                       name="email"
@@ -274,7 +284,7 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder={t.placeholderEmail}
-                      className="bg-componentBgSecondary  "
+                      className="w-full p-2 text-white bg-jili-bgSecondary     rounded-md  "
                     />
                   </div>
                   <div
@@ -283,19 +293,23 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
                   >
                     <p className="text-textSecondaryColor">{t.back}</p>
                   </div>
+                     
+                </div>
+                </div>
                 </>
               )}
 
               {/* SMS Tab */}
               {activeTab === "sms" && (
-                <div>
+                <div className="px-2">
+                <div className="bg-jili-bgSecondary bg-opacity-70 p-2 rounded-b-md">
                   <label className="w-[30%]">{t.phoneNumber}</label>
                   <div className="flex gap-2">
                     {/* Country Code Dropdown */}
                     <div className="relative w-1/3">
                       <div
                         onClick={() => setCodeDropdownOpen(!codeDropdownOpen)}
-                        className="p-2 text-white bg-componentBgSecondary  rounded-md flex items-center justify-between cursor-pointer"
+                        className="p-2 text-white   rounded-md flex items-center justify-between cursor-pointer"
                       >
                         <img
                           src={
@@ -312,12 +326,12 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
                       {codeDropdownOpen && (
                         <div
                           ref={dropdownRef}
-                          className="absolute z-10 w-full text-white bg-componentBgSecondary rounded shadow-md mt-1"
+                          className="absolute z-10 w-full text-white bg-jili-bgBlack rounded shadow-md "
                         >
                           {countryCodes.map((option, idx) => (
                             <div
                               key={idx}
-                              className="p-2 flex items-center gap-2 cursor-pointer hover:bg-gray-800 hover:text-textSecondaryColor"
+                              className="p-2  flex items-center gap-1 cursor-pointer hover:bg-gray-800 hover:text-textSecondaryColor"
                               onClick={() => handleCodeSelect(option)}
                             >
                               <img
@@ -339,25 +353,28 @@ const ForgetPassword = ({ handleLoginOpenTwo }) => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="01xxxxxxxxx"
-                      className="w-full p-2 text-white bg-componentBgPrimary  "
+                      className="w-full p-2 text-white bg-jili-bgSecondary  "
                     />
                   </div>
-                  <div
+                  {/* <div
                     className="flex justify-end pt-2"
                     onClick={handleLoginOpenTwo}
                   >
                     <p className="text-textSecondaryColor">{t.back}</p>
-                  </div>
+                  </div> */}
+                </div>
                 </div>
               )}
 
               {/* Submit Button */}
+              <div className=" p-2">
               <button
                 type="submit"
-                className="w-full text-white bg-backgroundSecondaryColor py-2 rounded-md"
+                className="w-full text-black bg-jili-bgPrimary py-2 rounded-md"
               >
                 {t.confirm}
               </button>
+              </div>
             </form>
           </div>
         </div>

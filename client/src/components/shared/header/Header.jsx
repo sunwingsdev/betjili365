@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import MainLogo from "../../../assets/betJilliImages/logos/logo.png";
 import bgImage from "../../../assets/betJilliImages/images/BD.png";
 import logo1 from "../../../assets/v2/deccan-gladiators-ChfQU95Q.png";
@@ -21,8 +21,10 @@ import { useGetAllHomeGamesQuery } from "@/redux/features/allApis/homeGamesApi/h
 import { MdOutlineChat } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import MenuHeader from "./MenuHeader";
+import { LanguageContext } from "@/Context/LanguageContext";
 
-const Header = ({ menuItems }) => {
+const Header = ({ menuItems,openLoginModal,openRegisterModal,openBDTFacaiModal }) => {
+  const { language } = useContext(LanguageContext);
   const { data: homeControls } = useGetHomeControlsQuery();
   const { data: allHomeGames } = useGetAllHomeGamesQuery();
   const images = [logo1, logo2, logo3, logo4];
@@ -124,8 +126,10 @@ const Header = ({ menuItems }) => {
       <div className="absolute top-1 right-3 z-50">
         <button
           className="text-white font-semibold text-2xl"
-          onClick={() => setIsOpen(false)}
-          onClickCapture={(e) => e.stopPropagation()} 
+          onClick={(e) => {
+            e.stopPropagation(); // Bubble phase-এ propagation বন্ধ করবে
+            setIsOpen(false);
+          }}
         >
          <RxCross2 />
         </button>
@@ -380,13 +384,21 @@ const Header = ({ menuItems }) => {
         </div> */}
 
         <div className="flex gap-1 justify-end items-center text-xs w-[45%]">
-          <button className="px-2 pb-1 bg-jili-bgPrimary text-black rounded-md">
-            Login
+          <button
+          onClick={openLoginModal}
+          className="px-2 pb-1 text-[10px] whitespace-nowrap bg-jili-bgPrimary text-black rounded-md">
+            {language === "en"? "Login":"লগ ইন"}
+            
           </button>
-          <button className="px-2 pb-1 bg-white text-black rounded-md">
-            Sign Up
+          <button
+          onClick={openRegisterModal}
+          className="px-2 pb-1 text-[10px] whitespace-nowrap bg-white text-black rounded-md">
+            
+            {language === "en" ? "Sign Up" : "সাইন আপ"}
           </button>
-          <div className="w-[10%]">
+          <div
+          onClick={openBDTFacaiModal}
+          className="w-[10%]">
             <img src={bgImage} alt="" className="w-full" />
           </div>
         </div>
