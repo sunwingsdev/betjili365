@@ -59,10 +59,10 @@ const DashboardSidebar = ({ open, setOpen, menuItems }) => {
       <div
         className={`${
           open ? "w-64" : "w-16"
-        } hidden md:block duration-300 h-screen fixed`}
+        } hidden md:block duration-300 h-screen fixed bg-primary-primaryColor`}
       >
         {/* Start Top collapse */}
-        <div className={`bg-primary-primaryColorTwo py-3 ${!open && "py-5"}`}>
+        <div className={`bg-primary-primaryColor py-3 ${!open && "py-5"}`}>
           <div className="flex gap-x-3 items-center justify-center">
             <div className={`flex gap-1 ${!open && "hidden"}`}>
               <Link
@@ -97,7 +97,7 @@ const DashboardSidebar = ({ open, setOpen, menuItems }) => {
 
       {/* Start Menu bar */}
       <div
-        className={`bg-primary-primaryColorTwo overflow-y-auto fixed mt-[62px] hidden md:block pb-16 ${
+        className={`bg-primary-primaryColor overflow-y-auto fixed mt-[62px] hidden md:block pb-16 ${
           open ? "w-64" : "w-16"
         } text-sm text-white duration-300 font-semibold h-full scrollbar-hide`}
       >

@@ -66,9 +66,9 @@ const Navbar = ({ menuItems }) => {
         isScrolled ? "fixed top-0 left-0 z-50 w-full" : ""
       }`}
     >
-      <NavTop />
+      {/* <NavTop /> */}
       <NavMiddle navItems={navItems} />
-      <NavBottom navItems={mergedItems} />
+      {/* <NavBottom navItems={mergedItems} /> */}
     </div>
   );
 };

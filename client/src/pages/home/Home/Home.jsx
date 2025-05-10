@@ -20,7 +20,7 @@ const Home = () => {
   const { menuItems } = useOutletContext();
   return (
     <>
-      <div className="bg-primary-primaryColor hidden md:block">
+      <div className="bg-jili-bgBlack hidden md:block">
         <BannerSlider />
 
         <Container>
