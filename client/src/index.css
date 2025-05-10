@@ -92,7 +92,22 @@
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #555; /* dark grey thumb */
+  border-radius: 2px;
+}
+.custom-scrollbar {
+  scrollbar-color: #555 transparent; /* For Firefox */
+  scrollbar-width: thin;
 }
 
 /* reat tab classes */
@@ -107,10 +122,10 @@
 
 @keyframes marquee {
   0% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
   100% {
-      transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 .marquee-wrapper {
@@ -127,8 +142,8 @@
 
 @media (max-width: 480px) {
   .marquee {
-      min-width: max-content;
-      animation-duration: 20s; 
+    min-width: max-content;
+    animation-duration: 20s;
   }
 }
 

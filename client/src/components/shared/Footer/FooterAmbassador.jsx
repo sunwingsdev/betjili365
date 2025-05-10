@@ -19,9 +19,7 @@ const FooterAmbassador = () => {
     {
       logo: logo1,
       title:
-        language === "bn"
-          ? "দক্ষিণ আফ্রিকার ক্রিকেটার"
-          : "Quinton de Kock",
+        language === "bn" ? "দক্ষিণ আফ্রিকার ক্রিকেটার" : "Quinton de Kock",
       modelName:
         language === "bn"
           ? "দক্ষিণ আফ্রিকার ক্রিকেটার"
@@ -50,7 +48,7 @@ const FooterAmbassador = () => {
       modelName: language === "bn" ? "অভিনেত্রী" : "Actress",
     },
   ];
-  
+
   return (
     <div>
       <div className=" mx-2">
@@ -58,9 +56,9 @@ const FooterAmbassador = () => {
           {" "}
           {language === "bn" ? "ব্র্যান্ড অ্যাম্বাসেডর’স" : "Brand Ambassadors"}
         </h2>
-        <div className="grid grid-cols-2 bg-jili-bgSecondary w-full p-2 rounded  gap-4 ">
+        <div className="grid md:flex grid-cols-2 bg-jili-bgSecondary w-full p-2 rounded gap-4 md:gap-2 ">
           {sponsorshipData.map((data, index) => (
-            <div key={index} className="flex flex-col  gap-1">
+            <div key={index} className="flex flex-col gap-1">
               {/* <img src={data.logo} alt="" className="w-20 h-10" /> */}
               <div
                 className="w-20 h-10"

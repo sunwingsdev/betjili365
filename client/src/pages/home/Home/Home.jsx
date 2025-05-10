@@ -22,10 +22,10 @@ const Home = () => {
   ];
   const { menuItems } = useOutletContext();
   return (
-    <>
+    <div>
       <div className="bg-primary-primaryColor hidden md:block">
         {/* <BannerSlider /> */}
-        <DesktopSlider/>
+        <DesktopSlider />
 
         <Container>
           <CategoryMobileMenu />
@@ -41,7 +41,7 @@ const Home = () => {
       <div className="block md:hidden relative">
         <MobileHome />
       </div>
-    </>
+    </div>
   );
 };
 

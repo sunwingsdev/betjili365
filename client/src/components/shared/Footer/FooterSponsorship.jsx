@@ -76,7 +76,7 @@ const FooterSponsorship = () => {
         ))}
       </div> */}
       <div className="bg-jili-bgSecondary w-full p-2 rounded">
-        <div className=" w-[20%] items-center gap-2 ">
+        <div className=" w-[20%] md:w-20 items-center gap-2 ">
           <div>
             <img src={vipImage} alt="" className="w-full " />
           </div>

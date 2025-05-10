@@ -53,7 +53,7 @@ const FooterDeposit = () => {
           {language === "bn" ? "কমিউনিটি ওয়েবসাইট" : "Community Websites"}
         </h2>
         <div className="bg-jili-bgSecondary w-full p-2 rounded">
-          <div className="grid grid-cols-5 w-[60%] items-center gap-2">
+          <div className="grid md:flex grid-cols-5 w-[60%] items-center gap-2 md:gap-6">
             {communityData.map((image, index) => (
               <div key={index}>
                 <img src={image} alt="" className="w-6" />
@@ -84,7 +84,7 @@ const FooterDeposit = () => {
           {language === "bn" ? "পেমেন্ট মেথডস" : "Payment Methods"}
         </h2>
         <div className="bg-jili-bgSecondary w-full p-2 rounded">
-          <div className="grid grid-cols-4 w-[70%] items-center gap-2">
+          <div className="grid md:flex grid-cols-4 w-[70%] md:w-48 items-center gap-2">
             {images.map((image, index) => (
               <div key={index}>
                 <img

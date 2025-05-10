@@ -10,8 +10,14 @@ const menuItems = [
   },
 
   // { label: { bn: "নিরাপত্তা", en: "Security" }, to: "/info/security" },
-  { label: { bn: " শর্তাবলী ", en: "Terms & Conditions" }, to: "/info/security" },
-  { label: { bn: " নিয়ম এবং প্রবিধান ", en: "Rules & Regulation" }, to: "/info/security" },
+  {
+    label: { bn: " শর্তাবলী ", en: "Terms & Conditions" },
+    to: "/info/security",
+  },
+  {
+    label: { bn: " নিয়ম এবং প্রবিধান ", en: "Rules & Regulation" },
+    to: "/info/security",
+  },
   {
     label: { bn: "দায়িত্বশীল গেমিং", en: "Responsible Gaming" },
     to: "/info/responsible-gaming",
@@ -28,7 +34,7 @@ const FooterFaq = () => {
 
   return (
     <div className="border-t mt-5 py-4 px-2 border-white border-opacity-50">
-      <div className="grid grid-cols-3 gap-5 items-center">
+      <div className="grid md:flex grid-cols-3 gap-5 items-center">
         {menuItems.map((item, index) => (
           <Link
             key={index}
