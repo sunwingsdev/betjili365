@@ -11,6 +11,9 @@ import HomeTabs from "./HomeTabs";
 import { useOutletContext } from "react-router-dom";
 import HomeFavorite from "./HomeFavorite";
 import HomeFeatures from "./HomeFeatures";
+import BetJiliImageSlider from "./BetJiliImageSlider";
+import ImageSlider from "./ImageSlider";
+import DesktopSlider from "./DesktopSlider";
 
 const Home = () => {
   const cardSliders = [
@@ -20,8 +23,9 @@ const Home = () => {
   const { menuItems } = useOutletContext();
   return (
     <>
-      <div className="bg-jili-bgBlack hidden md:block">
-        <BannerSlider />
+      <div className="bg-primary-primaryColor hidden md:block">
+        {/* <BannerSlider /> */}
+        <DesktopSlider/>
 
         <Container>
           <CategoryMobileMenu />
