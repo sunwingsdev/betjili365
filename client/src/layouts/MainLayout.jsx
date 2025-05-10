@@ -15,6 +15,7 @@ import LoginModal from "@/pages/home/Login/LoginModal";
 import ForgetPasswordModal from "@/pages/home/ForgetPassword/ForgetPasswordModel";
 import BDTModalFacai from "@/components/BDTModalFacai/BDTModalFacai";
 import MobileColar from "@/pages/home/Home/MobileColar";
+import Container from "@/components/shared/Container";
 import DepositWithdrawModal from "@/components/DepositWithdraw/DepositWithdrawModal";
 
 const MainLayout = () => {
@@ -67,7 +68,8 @@ const MainLayout = () => {
         {/* globalLoader */}
         {navigation.state === "loading" && <Loader />} {/* 👈 show loader */}
       </div>
-      <div className="relative hidden md:block">
+
+      <div className="relative hidden md:block bg-jili-bgBlack">
         {!hideCommonComponents && <Navbar
          menuItems={menuItems} 
          openLoginModal={() => setIsModalLoginOpen(true)}
@@ -75,8 +77,13 @@ const MainLayout = () => {
           openRegisterModal={() => setIsModalOpen(true)}
           openBDTFacaiModal={() => setIsOpenLanguage(true)}
          />}
+
         <Outlet context={{ menuItems }} />
-        {!hideCommonComponents && <Footer />}
+        {!hideCommonComponents && (
+          <Container>
+            <Footer2 />
+          </Container>
+        )}
         {!hideCommonComponents && <MenuMobile />}
       </div>
       <div className="relative block md:hidden">
