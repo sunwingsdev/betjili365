@@ -185,9 +185,9 @@ const LoginFacai = ({ handleRegisterOpen, setIsModalForgetOpen }) => {
         </div>
       </div> */}
 
-      {/* phoneDevice */}
-      <div className="pb-14 md:hidden h-screen   mx-auto lg:max-w-6xl text-xs bg-jili-bgBlack text-white">
-        <div className="flex flex-col lg:flex-row gap-4 lg:border-4 border-textPrimary ">
+      
+      <div className="pb-14  h-screen md:h-auto   mx-auto lg:max-w-6xl text-xs bg-jili-bgBlack text-white">
+        <div className="flex flex-col  gap-4   ">
           <div className="  p-6   flex justify-center items-center ">
             <img src={mainLogo} alt="" className="w-[60%]" />
           </div>
@@ -202,7 +202,7 @@ const LoginFacai = ({ handleRegisterOpen, setIsModalForgetOpen }) => {
                     type="text"
                     name="username"
                     placeholder={t.placeholderUsername}
-                    className="w-full p-2 text-white bg-jili-bgSecondary  outline-textSecondaryColorThree rounded-md"
+                    className="w-full  p-2 text-white bg-jili-bgSecondary  outline-textSecondaryColorThree rounded-md"
                     value={formData.username}
                     onChange={handleChange}
                   />
@@ -275,7 +275,7 @@ const LoginFacai = ({ handleRegisterOpen, setIsModalForgetOpen }) => {
               </p>
               <strong
                 onClick={handleRegisterOpen}
-                className="text-textSecondaryColor"
+                className="text-textSecondaryColor cursor-pointer"
               >
                 {language === "en" ? "Sign up" : "সাইন আপ ? "}
               </strong>

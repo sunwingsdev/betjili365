@@ -16,6 +16,7 @@ import ForgetPasswordModal from "@/pages/home/ForgetPassword/ForgetPasswordModel
 import BDTModalFacai from "@/components/BDTModalFacai/BDTModalFacai";
 import MobileColar from "@/pages/home/Home/MobileColar";
 import Container from "@/components/shared/Container";
+import DepositWithdrawModal from "@/components/DepositWithdraw/DepositWithdrawModal";
 
 const MainLayout = () => {
   const navigation = useNavigation();
@@ -25,6 +26,7 @@ const MainLayout = () => {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false);
+  const [isModalDWOpen, setIsModalDWOpen] = useState(false);
   const [isModalForgetOpen, setIsModalForgetOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const { data: allCategories } = useGetAllCategoriesQuery();
@@ -66,8 +68,16 @@ const MainLayout = () => {
         {/* globalLoader */}
         {navigation.state === "loading" && <Loader />} {/* 👈 show loader */}
       </div>
+
       <div className="relative hidden md:block bg-jili-bgBlack">
-        {!hideCommonComponents && <Navbar menuItems={menuItems} />}
+        {!hideCommonComponents && <Navbar
+         menuItems={menuItems} 
+         openLoginModal={() => setIsModalLoginOpen(true)}
+         openDWModal={() => setIsModalDWOpen(true)}
+          openRegisterModal={() => setIsModalOpen(true)}
+          openBDTFacaiModal={() => setIsOpenLanguage(true)}
+         />}
+
         <Outlet context={{ menuItems }} />
         {!hideCommonComponents && (
           <Container>
@@ -116,6 +126,13 @@ const MainLayout = () => {
           setIsModalLoginOpen={setIsModalLoginOpen}
           setIsModalOpen={setIsModalOpen}
           setIsModalForgetOpen={setIsModalForgetOpen}
+        />
+      )}
+      {isModalDWOpen && (
+        <DepositWithdrawModal
+          isModalDWOpen={isModalDWOpen}
+          setIsModalDWOpen={setIsModalDWOpen}
+          
         />
       )}
       {isModalForgetOpen && (
