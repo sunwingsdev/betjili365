@@ -57,6 +57,8 @@ const MainLayout = () => {
     ),
   }));
 
+  console.log("mm", menuItems);
+
   return (
     <>
       <div>

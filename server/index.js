@@ -134,7 +134,7 @@ async function run() {
     await client.connect();
 
     //Database
-    const database = client.db("facai88");
+    const database = client.db("betjili365");
 
     // Collections
     const usersCollection = database.collection("users");
