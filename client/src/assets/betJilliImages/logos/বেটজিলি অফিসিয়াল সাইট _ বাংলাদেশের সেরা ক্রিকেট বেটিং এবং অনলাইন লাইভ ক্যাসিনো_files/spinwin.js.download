@@ -1,0 +1,464 @@
+(function (window) {
+
+    function addPreloadTags() {
+
+        // 获取当前脚本的路径
+        function getCurrentScriptPath() {
+            const scripts = document.getElementsByTagName('script');
+            const currentScript = scripts[scripts.length - 1];
+            const scriptPath = currentScript.src;
+            return scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
+        }
+
+        // DNS预解析和预连接
+        const connections = [
+            { rel: 'dns-prefetch', href: '//reward.monopolygaming.com/' },
+            { rel: 'preconnect', href: '//reward.monopolygaming.com/' }
+        ];
+
+        // 预加载核心资源
+        const resources = [
+           // { href: 'src/settings.5739b.js', as: 'script' },
+            { href: 'cocos2d-js-min.ca36d.js', as: 'script' },
+          //  { href: 'main.07b8a.js', as: 'script' },
+          //  { href: 'style-mobile.58f95.css', as: 'style' },
+          //  { href: 'assets/main/index.49c3c.js', as: 'script' },//93K
+         //   { href: 'assets/main/config.49c3c.json', as: 'fetch' }
+        ];
+
+        function createLinkElement(attributes) {
+            const link = document.createElement('link');
+            Object.entries(attributes).forEach(([key, value]) => {
+                link.setAttribute(key, value);
+            });
+            return link;
+        }
+
+        // 获取当前脚本的基础路径
+        const baseUrl = getCurrentScriptPath();
+        const baseUrl2 = "https://reward.monopolygaming.com/";
+        // 添加DNS预解析和预连接标签
+        connections.forEach(conn => {
+            const link = createLinkElement(conn);
+            document.head.appendChild(link);
+        });
+    
+        //添加资源预加载标签
+        resources.forEach(resource => {
+            // const link = createLinkElement({
+            //     rel: 'preload',
+            //     href: `${baseUrl2}${resource.href}`,
+            //     as: resource.as
+            // });
+            // document.head.appendChild(link);
+             
+        });
+        
+    
+    }
+
+    class spinwin {
+
+        constructor(options = {}) {
+
+            this.options = Object.assign({
+                imageUrl: 'gift.png',
+                position: 'bottom-right',
+                iframeSrc: 'web-mobile/index.html', // 新增: iframe 的源 URL
+                urlStr: '',
+            }, options);
+            
+            addPreloadTags();
+
+            this.init();
+            this.initMessageListener();
+
+        }
+
+        init() {
+            this.gameUrl = this.options.urlStr;
+            this.createButton();
+            this.addEventListeners();
+        }
+
+        createButton() {
+            this.element = document.createElement('div');
+            this.element.className = 'floating-button';
+            this.element.innerHTML = `
+            <img src="${this.options.imageUrl}" alt="floating button" class="button-image">
+            <button class="close-button" style="display:none;">&times;</button>
+        `;
+
+            document.body.appendChild(this.element);
+
+            this.fullButton = document.createElement('div');
+            this.fullButton.className = 'fullscreenButton';
+            this.fullButton.style.backgroundColor = 'transparent'; // 强制透明
+            this.fullButton.innerHTML = `
+    <button id="fullscreenButton"></button>
+`;
+            this.fullButton.style.zIndex = '2000';
+            document.body.appendChild(this.fullButton);
+            this.hideFullButton();
+
+            this.applyHtml();
+            this.applyStyles();
+            
+            
+        }
+        
+        
+      loadScript(moduleName, cb) {
+            function scriptLoaded() {
+                document.body.removeChild(domScript);
+                domScript.removeEventListener('load', scriptLoaded, false);
+                cb && cb();
+            };
+            var domScript = document.createElement('script');
+            domScript.async = true;
+            domScript.src ="https://reward.monopolygaming.com/"+ moduleName;
+            domScript.addEventListener('load', scriptLoaded, false);
+            document.body.appendChild(domScript);
+        }
+    
+        applyHtml() {
+            // 创建弹出层 HTML
+            const popupHtml = `
+            <div class="floating-window">
+                <iframe class="floating-window-iframe" src="about:blank"  allowfullscreen="true" webkit-overflow-scrolling="touch"></iframe>
+                <button class="close-btn">X</button>
+            </div>
+        `;
+            document.body.insertAdjacentHTML('beforeend', popupHtml);
+            // 绑定关闭按钮事件
+            document.querySelector('.close-btn').addEventListener('click', () => {
+                this.hidePopup();
+            });
+        }
+
+        applyStyles() {
+            const styles = `
+             .fullscreenButton {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                background-color: transparent; /* 设置为透明 */
+            }
+
+            .floating-button {
+                position: fixed;
+                bottom:20px;
+                right:20px;
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                transition: transform 0.3s ease;
+                
+            }
+            .floating-button:hover {
+                transform: translateY(-5px);
+            }
+            .button-image {
+                width: 60px;
+                height: auto;
+                border-radius: 5px;
+            }
+            .close-button {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background-color: #ff4444;
+                color: white;
+                border: none;
+                font-size: 16px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: background-color 0.3s ease;
+            }
+            .close-button:hover {
+                background-color: #ff0000;
+            }
+
+        
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f5f5f5;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 2;
+        }
+        
+        .loading-overlay.active {
+            display: flex;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loading-text {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+        /* 添加浮层样式 */
+        .floating-window {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            border-radius: 8px;
+        }
+
+        .floating-window-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: -15px;
+            top: -15px;
+            width: 30px;
+            height: 30px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;  /* 调小字体大小 */
+            padding: 0;  /* 添加这行 */
+            display: none;  /* 添加这行 */
+            justify-content: center;  /* 添加这行 */
+            align-items: center;  /* 添加这行 */
+        }
+
+        .close-btn:hover {
+            background: #ff0000;
+        }
+        `;
+
+
+            const styleElement = document.createElement('style');
+            styleElement.textContent = styles;
+            document.head.appendChild(styleElement);
+
+            // // 设置位置
+            // switch (this.options.position) {
+            //     case 'bottom-right':
+            //         this.element.style.bottom = '20px';
+            //         this.element.style.right = '20px';
+            //         break;
+            //     case 'bottom-left':
+            //         this.element.style.bottom = '20px';
+            //         this.element.style.left = '20px';
+            //         break;
+            //     case 'top-right':
+            //         this.element.style.top = '20px';
+            //         this.element.style.right = '20px';
+            //         break;
+            //     case 'top-left':
+            //         this.element.style.top = '20px';
+            //         this.element.style.left = '20px';
+            //         break;
+            // }
+        }
+
+
+        // 显示弹出层
+        showPopup() { 
+            const popup = document.querySelector('.floating-window');
+            const iframe = popup.querySelector('.floating-window-iframe'); 
+			// 判断是否为手机用户
+			if (this.isMobile()) {
+				popup.style.width = '80%';
+			} else {
+				if (window.innerWidth > 420) {
+					popup.style.width = '400px';
+				}else{
+					popup.style.width = '80%';
+				}
+				if(!this.isUpdatePopBo){
+					window.addEventListener('resize', () => {
+						this.updatePopupPosition(popup);
+					});
+				}
+			}
+            if (iframe) {
+                iframe.src = this.gameUrl;
+            }
+			popup.style.left = '50%';
+			popup.style.transform = 'translateX(-50%)'; // 保证水平居中
+            popup.style.display = 'block';
+            popup.style.zIndex = '3000';
+        }
+
+		// 更新弹窗位置和宽度
+		updatePopupPosition(popup) { 
+			if(!popup)return;
+			const iframe = popup.querySelector('.floating-window-iframe'); 
+			if (iframe&&iframe.src!=this.gameUrl) {
+			    return;
+			}
+			this.isUpdatePopBo=true;
+			// 判断屏幕宽度是否大于880px，只有大于880px时才设置固定宽度
+			if (window.innerWidth > 420) {
+				popup.style.width = '400px';  // 你可以根据需要调整这个宽度
+			} else {
+				popup.style.width = '80%';  // 屏幕小于880px时，宽度设置为100%
+			} 
+
+			popup.style.left = '50%';
+			popup.style.transform = 'translateX(-50%)'; // 保证水平居中
+		}
+
+        // 隐藏弹出层
+        hidePopup() { 
+            const popup = document.querySelector('.floating-window');
+            const iframe = popup.querySelector('.floating-window-iframe');
+            if (iframe) {
+                iframe.src = 'about:blank';
+            }
+            popup.style.display = 'none';
+            this.hideFullButton();
+        }
+
+        showFullButton() {
+            if (this.fullButton) {
+                this.fullButton.style.display = 'block';
+            }
+        }
+
+        hideFullButton() {
+            if (this.fullButton) {
+                this.fullButton.style.display = 'none';
+            }
+        }
+        addEventListeners() {
+            const buttonImage = this.element.querySelector('.button-image');
+            const closeButton = this.element.querySelector('.close-button');
+
+            buttonImage.addEventListener('click', () => {
+                this.showPopup();
+                this.showFullButton();
+            });
+
+            closeButton.addEventListener('click', () => {
+                this.hidePopup();
+                this.hideFullButton();
+            });
+
+        }
+		// 判断是否为手机用户
+		isMobile() {
+			const userAgent = navigator.userAgent.toLowerCase();
+			return /iphone|ipod|ipad|android|blackberry|windows phone|webos/.test(userAgent);
+		}
+
+        initMessageListener() {
+            window.addEventListener('message', (event) => {
+                // console.log("this.ALLOWED_ORIGINS===============>",this.ALLOWED_ORIGINS);
+                // if (!this.ALLOWED_ORIGINS.includes(event.origin)) {
+                //     console.warn('收到未授权来源的消息:', event.origin);
+                //     return;
+                // }
+                // console.log("==========================1=>");
+                if (!event.data) {
+                    console.warn('消息数据为空');
+                    return;
+                }
+
+                try {
+                    let messageData = JSON.parse(event.data);
+                    console.log("messageData===========ddd====>", messageData);
+
+                    if (messageData.msg == "gameDestroy") {//嵌入游戏销毁
+                        console.log('游戏已成功销毁');
+                        // this.destroy();
+                    } else if (messageData.msg == "tips") {//
+
+                    } else if (messageData.msg == "close") {//
+                        console.log("==========================2=>");
+                        this.hidePopup();
+                    } else if (messageData.msg == "getPrize") {//
+
+                    }
+
+                } catch (error) {
+                    //console.error('消息处理错误:', error);
+                }
+
+
+            });
+        }
+
+        isValidString(str) {
+            return str && typeof str === 'string' && str.trim().length > 0;
+        }
+
+        destroy() {
+
+            const iframe = document.querySelector('.floating-window-iframe');
+            if (iframe) {
+                try {
+                    // 首先通过 postMessage 通知游戏进行清理
+                    iframe.contentWindow.postMessage({
+                        type: 'DESTROY_GAME',
+                        data: {
+                            action: 'destroy'
+                        }
+                    }, '*');
+
+                    // 给游戏一定时间进行清理
+                    setTimeout(() => {
+                        iframe.src = 'about:blank';
+                        iframe.remove();
+
+                        this.gameUrl = null;
+                    }, 100);
+
+                } catch (error) {
+                    console.error('销毁游戏时出错:', error);
+                }
+            }
+        }
+    }
+    // 将 FloatingButton 类和 encryptData 函数暴露到全局作用域
+    window.Mono_spinwin = spinwin;
+
+
+})(window);
