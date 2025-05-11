@@ -159,3 +159,29 @@
 .marquee-vertical {
   animation: scroll-vertical 15s linear infinite;
 }
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 0.7s ease forwards;
+}
+
+.animate-slide-right {
+  animation: slide-right 0.7s ease forwards;
+}
