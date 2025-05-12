@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/home/Home/Home";
-import Register from "@/pages/home/Register/Register";
 import CategoryPage from "@/pages/home/CategoryPage/CategoryPage";
 import PromotionalOffer from "@/pages/home/PromotionalOffer/PromotionalOffer";
 import Vip from "@/pages/home/Vip/Vip";
@@ -55,12 +54,6 @@ import Kyc from "@/pages/dashboard/kyc/Kyc";
 import PaymentMethodRequests from "@/pages/dashboard/CashAgent/PaymentMethodRequests";
 import Affiliators from "@/pages/dashboard/Affilitor/Affilitors";
 import AllAffiliateLinks from "@/pages/dashboard/Affilitor/AllAffiliateLinks";
-import BecomeAnAffiliate from "@/pages/becomeAnAffiliate/BecomeAnAffiliate";
-import HomeAffiliate from "@/pages/becomeAnAffiliate/homeAffiliate/HomeAffiliate";
-import TermsAndConditions from "@/pages/becomeAnAffiliate/TermsAndConditions/TermsAndConditions";
-import PrivacyPolicy from "@/pages/becomeAnAffiliate/privacyPolicy/PrivacyPolicy";
-import Disconnection from "@/pages/becomeAnAffiliate/disconnection/Disconnection";
-import Faqs from "@/pages/becomeAnAffiliate/faqs/Faqs";
 import AffiliateLogin from "@/pages/affiliateLogin/AffiliateLogin";
 import AffiliateSignUp from "@/pages/affiliateSignUp/AffiliateSignUp";
 import AffiliateRoute from "./AffiliateRoute";
@@ -80,10 +73,6 @@ import ManagePages from "@/pages/dashboard/ManagePages/ManagePages";
 import Pages from "@/pages/pages-on-footer/Pages";
 import WithdrawMethod from "@/pages/dashboard/BankingWithdraw/WithdrawMethod";
 import EditWithdrawMethodForm from "@/components/dashboard/bankingWithdraw/withdrawMethod/EditWithdrawMethodForm";
-import SiteInfo from "@/pages/siteInfo/SiteInfo";
-import RegisterFacai from "@/pages/home/Register/RegisterFacai";
-import LoginFacai from "@/pages/home/Login/LoginFacai";
-import ForgetPassword from "@/pages/home/ForgetPassword/ForgetPassword";
 import ResponsibleGameing from "@/pages/extra/ResponsibleGameing";
 import InfoLayout from "@/layouts/InfoLayout";
 import AboutUs from "@/pages/extra/AboutUs";
@@ -107,7 +96,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <MainLayout />,
     children: [
-      // { path: "/", element: <Home /> },
       {
         path: "/",
         element: <Home />,
@@ -116,11 +104,6 @@ const router = createBrowserRouter([
           return null;
         },
       },
-      // { path: "/register", element: <Register /> },
-      // { path: "/register", element: <RegisterFacai /> },
-      // { path: "/login", element: <Login /> },
-      // { path: "/login", element: <LoginFacai /> },
-      // { path: "/forgetpassword", element: <ForgetPassword /> },
       { path: "/category/:category", element: <CategoryPage /> },
       { path: "/category/demo/:id", element: <DemoGame /> },
       { path: "/promotional-offer", element: <PromotionalOffer /> },
@@ -352,8 +335,6 @@ const router = createBrowserRouter([
         path: "conditions",
         element: <AffCondition />,
       },
-      
-      
     ],
   },
 

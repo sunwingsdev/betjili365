@@ -1,3 +1,280 @@
+// import React, { useEffect, useState } from "react";
+// import { IoMdArrowDropdown } from "react-icons/io";
+// import { useToasts } from "react-toast-notifications";
+// import { Copy, Loader2 } from "lucide-react";
+// import { useSelector } from "react-redux";
+// import { Button } from "@/components/ui/button";
+// import { Input } from "@/components/ui/input";
+// import { useGetPaymentMethodsQuery } from "@/redux/features/allApis/paymentMethodApi/paymentMethodApi";
+// import { useGetAllPaymentNumbersQuery } from "@/redux/features/allApis/paymentNumberApi/paymentNumberApi";
+// import { useGetPromotionsQuery } from "@/redux/features/allApis/promotionApi/promotionApi";
+// import { useAddDepositMutation } from "@/redux/features/allApis/depositsApi/depositsApi";
+
+// const Deposit = ({ language = "bn" }) => {
+//   const { addToast } = useToasts();
+//   const user = useSelector((state) => state.auth.user);
+//   const { data: methods = [] } = useGetPaymentMethodsQuery();
+//   const { data: numbers = [] } = useGetAllPaymentNumbersQuery();
+//   const { data: promotions = [] } = useGetPromotionsQuery();
+//   const [addDeposit, { isLoading }] = useAddDepositMutation();
+
+//   const [selectedGateway, setSelectedGateway] = useState(null);
+//   const [selectedChannel, setSelectedChannel] = useState("");
+//   const [selectedNumber, setSelectedNumber] = useState("");
+//   const [amounts, setAmounts] = useState([]);
+//   const [customAmount, setCustomAmount] = useState("");
+//   const [selectedPromotionId, setSelectedPromotionId] = useState("");
+//   const [userInputs, setUserInputs] = useState({});
+
+//   const matchedMethod = methods?.find((m) => m.method === selectedGateway);
+//   const filteredChannels = matchedMethod?.channels || [];
+//   const filteredNumbers = numbers?.filter(
+//     (n) => n.method === selectedGateway && n.channel === selectedChannel
+//   );
+
+//   const selectedPromotion = promotions?.find(
+//     (p) => p._id === selectedPromotionId
+//   );
+//   const totalAmount =
+//     amounts.reduce((sum, a) => sum + Number(a), 0) + Number(customAmount || 0);
+
+//   useEffect(() => {
+//     setSelectedChannel("");
+//     setSelectedNumber("");
+//     setUserInputs({});
+//     setAmounts([]);
+//     setCustomAmount("");
+//   }, [selectedGateway]);
+
+//   const handleUserInputChange = (label, value) => {
+//     setUserInputs((prev) => ({ ...prev, [label]: value }));
+//   };
+
+//   const handleSubmit = async () => {
+//     if (
+//       !selectedGateway ||
+//       !selectedChannel ||
+//       !selectedNumber ||
+//       totalAmount <= 0
+//     ) {
+//       addToast("Please complete all required fields.", {
+//         appearance: "error",
+//         autoDismiss: true,
+//       });
+//       return;
+//     }
+
+//     const payload = {
+//       method: selectedGateway,
+//       channel: selectedChannel,
+//       number: selectedNumber,
+//       amount: totalAmount,
+//       promotion: selectedPromotion?._id || null,
+//       userInputs,
+//     };
+
+//     try {
+//       await addDeposit(payload).unwrap();
+//       addToast("Deposit request submitted!", {
+//         appearance: "success",
+//         autoDismiss: true,
+//       });
+
+//       setSelectedGateway(null);
+//       setSelectedChannel("");
+//       setSelectedNumber("");
+//       setSelectedPromotionId("");
+//       setAmounts([]);
+//       setCustomAmount("");
+//       setUserInputs({});
+//     } catch (err) {
+//       addToast("Failed to submit deposit.", {
+//         appearance: "error",
+//         autoDismiss: true,
+//       });
+//     }
+//   };
+
+//   return (
+//     <div className="text-white p-4 space-y-4 overflow-y-auto scrollbar-hide h-[500px] pb-32 lg:pb-8">
+//       {/* Promotion Selection */}
+//       <div className="flex items-center gap-6 whitespace-nowrap bg-jili-bgdWTabsColor p-2 rounded-md">
+//         <div className="flex items-center gap-2">
+//           <span className="h-4 border-l-4 border-textSecondaryColorThree"></span>
+//           <label className="text-sm font-semibold">
+//             {language === "bn" ? "প্রোমোশন নির্বাচন করুন" : "Select Promotion"}
+//           </label>
+//         </div>
+//         <div className="relative w-full max-w-xs">
+//           <select
+//             className="w-full bg-transparent text-right text-xs outline-none text-white p-2 rounded appearance-none pr-8"
+//             value={selectedPromotionId}
+//             onChange={(e) => setSelectedPromotionId(e.target.value)}
+//           >
+//             <option value="">{language === "bn" ? "কোনোটি নয়" : "None"}</option>
+//             {promotions.map((promo) => (
+//               <option
+//                 key={promo._id}
+//                 value={promo._id}
+//                 className="bg-[#4d4d4d] text-left"
+//               >
+//                 {promo.title}
+//               </option>
+//             ))}
+//           </select>
+//           <IoMdArrowDropdown className="absolute right-2 top-2 pointer-events-none text-base" />
+//         </div>
+//       </div>
+
+//       {/* Payment Method Selection */}
+//       <div className="bg-jili-bgdWTabsColor p-2 rounded-md">
+//         <div className="flex items-center gap-2 mb-2">
+//           <span className="h-4 border-l-4 border-textSecondaryColorThree"></span>
+//           <label className="text-sm font-semibold">
+//             {language === "bn" ? "পেমেন্ট মেথড" : "Payment Method"}
+//           </label>
+//         </div>
+
+//         <div className="grid grid-cols-3 gap-2">
+//           {methods.map((method) => (
+//             <div
+//               key={method._id}
+//               onClick={() => setSelectedGateway(method.method)}
+//               className={`relative p-2 rounded-xl border cursor-pointer text-center bg-jili-bgForm ${
+//                 selectedGateway === method.method
+//                   ? "bg-[#4A4202] border-textSecondaryColorThree font-bold"
+//                   : "border-gray-700"
+//               }`}
+//             >
+//               <div className="absolute top-2 -right-1">
+//                 <div
+//                   className="text-[10px] px-2 py-[3px] text-white bg-red-600 font-bold"
+//                   style={{
+//                     clipPath:
+//                       "polygon(100% 1%, 100% 50%, 99% 100%, 0% 100%, 25% 50%, 0% 0%)",
+//                   }}
+//                 >
+//                   +5%
+//                 </div>
+//               </div>
+//               <img
+//                 src={method.image}
+//                 alt={method.method}
+//                 className="h-6 mx-auto"
+//               />
+//               <p className="mt-1 text-sm">
+//                 {language === "bn" ? method?.title?.bn : method?.title?.en}
+//               </p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Channel Selection */}
+//       {filteredChannels.length > 0 && (
+//         <div className="space-y-2">
+//           <p className="font-medium">Select Channel</p>
+//           <div className="flex flex-wrap gap-2">
+//             {filteredChannels.map((channel) => (
+//               <Button
+//                 key={channel}
+//                 onClick={() => setSelectedChannel(channel)}
+//                 variant={selectedChannel === channel ? "default" : "outline"}
+//               >
+//                 {channel}
+//               </Button>
+//             ))}
+//           </div>
+//         </div>
+//       )}
+
+//       {/* Payment Number Selection */}
+//       {filteredNumbers?.length > 0 && (
+//         <div className="space-y-2">
+//           <p className="font-medium">Select Number</p>
+//           <div className="flex flex-wrap gap-2">
+//             {filteredNumbers.map((number) => (
+//               <Button
+//                 key={number._id}
+//                 onClick={() => setSelectedNumber(number.number)}
+//                 variant={
+//                   selectedNumber === number.number ? "default" : "outline"
+//                 }
+//               >
+//                 {number.number}
+//                 <Copy
+//                   className="ml-1 w-4 h-4 cursor-pointer"
+//                   onClick={(e) => {
+//                     e.stopPropagation();
+//                     navigator.clipboard.writeText(number.number);
+//                     addToast("Copied!", {
+//                       appearance: "success",
+//                       autoDismiss: true,
+//                     });
+//                   }}
+//                 />
+//               </Button>
+//             ))}
+//           </div>
+//         </div>
+//       )}
+
+//       {/* Amount Selection */}
+//       <div className="space-y-2">
+//         <p className="font-medium">Amount</p>
+//         <div className="flex flex-wrap gap-2">
+//           {[100, 200, 500, 1000].map((amt) => (
+//             <Button
+//               key={amt}
+//               onClick={() =>
+//                 setAmounts((prev) =>
+//                   prev.includes(amt)
+//                     ? prev.filter((a) => a !== amt)
+//                     : [...prev, amt]
+//                 )
+//               }
+//               variant={amounts.includes(amt) ? "default" : "outline"}
+//             >
+//               ৳{amt}
+//             </Button>
+//           ))}
+//         </div>
+//         <Input
+//           placeholder="Custom Amount"
+//           value={customAmount}
+//           onChange={(e) => setCustomAmount(e.target.value)}
+//           type="number"
+//         />
+//       </div>
+
+//       {/* Dynamic Inputs */}
+//       {matchedMethod?.userInputs?.length > 0 && (
+//         <div className="space-y-2">
+//           <p className="font-medium">Additional Info</p>
+//           {matchedMethod.userInputs.map((input) => (
+//             <Input
+//               key={input.label}
+//               placeholder={input.label}
+//               value={userInputs[input.label] || ""}
+//               onChange={(e) =>
+//                 handleUserInputChange(input.label, e.target.value)
+//               }
+//             />
+//           ))}
+//         </div>
+//       )}
+
+//       {/* Total and Submit */}
+//       <div className="font-medium">Total: ৳{totalAmount}</div>
+//       <Button onClick={handleSubmit} disabled={isLoading}>
+//         {isLoading ? <Loader2 className="animate-spin" /> : "Submit Deposit"}
+//       </Button>
+//     </div>
+//   );
+// };
+
+// export default Deposit;
+
 import PrimaryButton from "@/components/shared/Buttons/PrimaryButton";
 import { useAddDepositMutation } from "@/redux/features/allApis/depositsApi/depositsApi";
 import { useGetPaymentMethodsQuery } from "@/redux/features/allApis/paymentMethodApi/paymentMethodApi";

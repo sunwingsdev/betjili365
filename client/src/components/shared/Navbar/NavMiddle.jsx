@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Modal from "../Modal";
-import PrimaryButton from "../Buttons/PrimaryButton";
 import Container from "../Container";
 import { RiMenu2Line } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,32 +15,12 @@ import depositImage from "../../../assets/betJilliImages/images/icon-deposit.svg
 import { IoReload } from "react-icons/io5";
 import SpinLoader from "../loaders/Spinloader";
 
-const sponsors = [
-  {
-    id: 1,
-    image: "https://www.baji.live/images/web/sponsor/deccan-gladiators.png",
-  },
-  {
-    id: 2,
-    image:
-      "https://www.baji.live/images/web/sponsor/sunrisers-eastern-cape.png",
-  },
-  {
-    id: 3,
-    image: "https://www.baji.live/images/web/sponsor/quetta-gladiators.png",
-  },
-  {
-    id: 4,
-    image: "https://www.baji.live/images/web/sponsor/bologna-fc-1909.png",
-  },
-];
-
 const NavMiddle = ({
   navItems,
   openLoginModal,
   openRegisterModal,
   openBDTFacaiModal,
-  openDWModal
+  openDWModal,
 }) => {
   const { data: homeControls } = useGetHomeControlsQuery();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -183,16 +162,6 @@ const NavMiddle = ({
                 alt="Logo"
               />
             </Link>
-            {/* <div className="flex gap-1 md:gap-2">
-              {sponsors.map((sponsor) => (
-                <img
-                  key={sponsor.id}
-                  className="w-6 md:w-8"
-                  src={sponsor.image}
-                  alt="Sponsor"
-                />
-              ))}
-            </div> */}
           </div>
 
           {/* Desktop navigation and buttons */}
@@ -211,9 +180,24 @@ const NavMiddle = ({
                   )}
                 </span>
               </p>
-              <Link to="/profile/deposit">
-                <PrimaryButton>ডিপোজিট</PrimaryButton>
-              </Link>
+              <div
+                className="flex items-center gap-2 px-7 py-1 rounded cursor-pointer bg-jili-bgPrimary hover:border border border-transparent"
+                onClick={openDWModal}
+              >
+                <div
+                  className="w-6 h-6"
+                  style={{
+                    WebkitMaskImage: `url(${depositImage})`,
+                    maskImage: `url(${depositImage})`,
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskSize: "contain",
+                    maskSize: "contain",
+                    backgroundColor: "black", // Black masked icon
+                  }}
+                ></div>
+                <span className="text-black">ডিপোজিট</span>
+              </div>
               <Link to="/profile">
                 <p className="px-3 py-1 hover:border-[#ffb405] hover:border border border-transparent rounded cursor-pointer">
                   সদস্য কেন্দ্র
@@ -234,50 +218,20 @@ const NavMiddle = ({
               </p>
             </div>
           ) : (
-            <div className="md:flex items-center gap-8 text-white hidden">
-              {/* <Link to="/login"> */}
-              {/* <p
-                className="px-7 py-1  hover:border-[#ffb405] hover:border border border-transparent rounded cursor-pointer"
-                // onClick={handleModalOpen}
-              >
-                লগ ইন
-              </p> */}
-              <div
-                className="flex items-center gap-2 px-7 py-1 rounded cursor-pointer bg-jili-bgPrimary hover:border border border-transparent"
-                onClick={openDWModal}
-              >
-                <div
-                  className="w-6 h-6"
-                  style={{
-                    WebkitMaskImage: `url(${depositImage})`,
-                    maskImage: `url(${depositImage})`,
-                    WebkitMaskRepeat: "no-repeat",
-                    maskRepeat: "no-repeat",
-                    WebkitMaskSize: "contain",
-                    maskSize: "contain",
-                    backgroundColor: "black", // Black masked icon
-                  }}
-                ></div>
-                <span className="text-black">ডিপোজিট</span>
-              </div>
+            <div className="md:flex items-center gap-8 text-black hidden">
               <p
-                className="px-7 py-1 bg-white-to-darkblue   hover:border border border-transparent rounded cursor-pointer"
+                className="px-7 py-1 bg-yellow-400 hover:border border border-transparent rounded cursor-pointer"
                 onClick={openLoginModal}
               >
                 লগ ইন
               </p>
-              {/* </Link> */}
-              {/* <Link to="/register">
-                <PrimaryButton>সাইন আপ</PrimaryButton>
-              </Link> */}
-              {/* <Link to="/register"> */}
+
               <p
-                className="px-7 py-1 bg-gold-gradient   hover:border border border-transparent rounded cursor-pointer"
+                className="px-7 py-1 bg-white hover:border border border-transparent rounded cursor-pointer"
                 onClick={openRegisterModal}
               >
                 সাইন আপ
               </p>
-              {/* </Link> */}
             </div>
           )}
 
