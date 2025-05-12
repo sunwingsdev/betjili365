@@ -59,7 +59,7 @@ const DesktopSlider = () => {
     currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative  w-full overflow-hidden">
       {/* Left (Previous) Preview Image */}
       <div className="absolute top-0 left-0 w-[5%] h-full z-0">
         <img
