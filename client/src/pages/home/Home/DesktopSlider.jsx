@@ -9,24 +9,49 @@ import slider5 from "../../../assets/betJilliImages/slidersImages/image_219491.j
 const DesktopSlider = () => {
   const slides = [slider1, slider2, slider3, slider4, slider5];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState("next");
+  const [autoSlide, setAutoSlide] = useState(true);
+
   const totalSlides = slides.length;
 
   const nextSlide = () => {
+    setDirection("next");
     setCurrentIndex((prevIndex) =>
       prevIndex === totalSlides - 1 ? 0 : prevIndex + 1
     );
+    setAutoSlide(false); // Stop auto slide on manual click
   };
 
   const prevSlide = () => {
+    setDirection("prev");
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? totalSlides - 1 : prevIndex - 1
     );
+    setAutoSlide(false); // Stop auto slide on manual click
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000);
+    if (!autoSlide) return;
+
+    const interval = setInterval(() => {
+      setDirection("next");
+      setCurrentIndex((prevIndex) =>
+        prevIndex === totalSlides - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Slow auto slide (3s)
+
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [autoSlide, currentIndex]);
+
+  // Restart autoSlide after manual interaction (optional)
+  useEffect(() => {
+    if (!autoSlide) {
+      const timeout = setTimeout(() => {
+        setAutoSlide(true); // Restart auto slide after 10s
+      }, 1000); // Adjust timing as needed
+      return () => clearTimeout(timeout);
+    }
+  }, [autoSlide]);
 
   const getPrevIndex = () =>
     currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
@@ -34,7 +59,7 @@ const DesktopSlider = () => {
     currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
 
   return (
-    <div className="relative w-full overflow-hidden ">
+    <div className="relative  w-full overflow-hidden">
       {/* Left (Previous) Preview Image */}
       <div className="absolute top-0 left-0 w-[5%] h-full z-0">
         <img
@@ -55,11 +80,18 @@ const DesktopSlider = () => {
 
       {/* Center/Main Image */}
       <div className="relative z-10 w-[87%] mx-auto h-full rounded-lg overflow-hidden">
-        <img
-          src={slides[currentIndex]}
-          alt="Current"
-          className="w-full h-full object-cover"
-        />
+        <div
+          key={currentIndex}
+          className={`w-full h-full transition-transform duration-700 ${
+            direction === "next" ? "animate-slide-left" : "animate-slide-right"
+          }`}
+        >
+          <img
+            src={slides[currentIndex]}
+            alt="Current"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
         {/* Navigation Buttons */}
         <button
@@ -80,7 +112,10 @@ const DesktopSlider = () => {
           {slides.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => {
+                setDirection(index > currentIndex ? "next" : "prev");
+                setCurrentIndex(index);
+              }}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 currentIndex === index
                   ? "bg-jili-bgPrimary"
