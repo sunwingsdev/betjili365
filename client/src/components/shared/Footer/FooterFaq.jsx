@@ -27,6 +27,11 @@ const menuItems = [
     label: { bn: "প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী", en: "FAQ" },
     to: "/info/faq",
   },
+
+  {
+    label: { bn: "অ্যাফিলিয়েট", en: "Affiliate" },
+    to: "/affiliate",
+  },
 ];
 
 const FooterFaq = () => {
@@ -38,7 +43,7 @@ const FooterFaq = () => {
         {menuItems.map((item, index) => (
           <Link
             key={index}
-            href={item.to}
+            to={item.to}
             className="text-jili-textSecondary border-dashed border-r-2 border-white text-xs px-2 underline"
           >
             {item.label[language] || item.label.en}
