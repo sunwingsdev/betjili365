@@ -28,7 +28,7 @@ const DepositWithdrawTabs = () => {
             <Deposit />
           </TabPanel>
           <TabPanel>
-            <Withdraw/>
+            <Withdraw />
           </TabPanel>
         </div>
       </Tabs>

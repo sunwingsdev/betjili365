@@ -90,6 +90,7 @@ const MainLayout = () => {
         <Header
           menuItems={menuItems}
           openLoginModal={() => setIsModalLoginOpen(true)}
+          openDWModal={() => setIsModalDWOpen(true)}
           openRegisterModal={() => setIsModalOpen(true)}
           openBDTFacaiModal={() => setIsOpenLanguage(true)}
         />
