@@ -101,6 +101,8 @@ import AffProduct from "@/pages/AffiliateFacai/AffProduct";
 import AffGuide from "@/pages/AffiliateFacai/AffGuide";
 import AffContact from "@/pages/AffiliateFacai/AffContact";
 import AffDiamondVolt from "@/pages/AffiliateFacai/AffDiamondVolt";
+import AffiliateBetJiliLayout from "@/layouts/AffiliateBetJiliLayout";
+import BetHome from "@/pages/BetJiliAffiliates/BetHome";
 
 const router = createBrowserRouter([
   {
@@ -316,42 +318,56 @@ const router = createBrowserRouter([
   //     },
   //   ],
   // },
+
+  // {
+  //   path: "/affiliate",
+  //   element: <AffiliateFacaiLayout />,
+  //   children: [
+  //     {
+  //       path: "",
+  //       element: <AffHome />,
+  //     },
+  //     {
+  //       path: "commission",
+  //       element: <AffCommission />,
+  //     },
+  //     {
+  //       path: "promotions",
+  //       element: <AffPromotions />,
+  //     },
+  //     {
+  //       path: "diamond-volt",
+  //       element: <AffDiamondVolt />,
+  //     },
+  //     {
+  //       path: "product",
+  //       element: <AffProduct />,
+  //     },
+  //     {
+  //       path: "guide",
+  //       element: <AffGuide />,
+  //     },
+  //     {
+  //       path: "contact",
+  //       element: <AffContact />,
+  //     },
+  //     {
+  //       path: "conditions",
+  //       element: <AffCondition />,
+  //     },
+      
+      
+  //   ],
+  // },
   {
     path: "/affiliate",
-    element: <AffiliateFacaiLayout />,
+    element: <AffiliateBetJiliLayout />,
     children: [
       {
         path: "",
-        element: <AffHome />,
+        element: <BetHome />,
       },
-      {
-        path: "commission",
-        element: <AffCommission />,
-      },
-      {
-        path: "promotions",
-        element: <AffPromotions />,
-      },
-      {
-        path: "diamond-volt",
-        element: <AffDiamondVolt />,
-      },
-      {
-        path: "product",
-        element: <AffProduct />,
-      },
-      {
-        path: "guide",
-        element: <AffGuide />,
-      },
-      {
-        path: "contact",
-        element: <AffContact />,
-      },
-      {
-        path: "conditions",
-        element: <AffCondition />,
-      },
+      
       
       
     ],
