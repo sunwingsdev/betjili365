@@ -1,42 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGetAllCategoriesQuery } from "@/redux/features/allApis/categoryApi/categoryApi";
-// import { useGetAllHomeGamesQuery } from "@/redux/features/allApis/homeGamesApi/homeGamesApi";
-import iconCasino from "../../../assets/betJilliImages/logos/icon-casino.svg";
-import iconSport from "../../../assets/betJilliImages/logos/icon-sport.svg";
-import iconSlot from "../../../assets/betJilliImages/logos/icon-slot.svg";
-import iconTable from "../../../assets/betJilliImages/logos/icon-table.svg";
-import iconCrash from "../../../assets/betJilliImages/logos/icon-crash.svg";
-import iconLottery from "../../../assets/betJilliImages/logos/icon-lottery.svg";
-import iconFish from "../../../assets/betJilliImages/logos/icon-fish.svg";
-import iconArcade from "../../../assets/betJilliImages/logos/icon-arcade.svg";
-import iconCock from "../../../assets/betJilliImages/logos/icon-cockfighting.svg";
 import { Link } from "react-router-dom";
 import { useGetAllSubCategoriesQuery } from "@/redux/features/allApis/categoryApi/subCategoryApi";
 
 const HomeTabs = () => {
-  // const iconMap = {
-  //   sport:iconSport,
-  //   Casino: iconCasino,
-  //   Table:iconTable,
-  //   Crash:iconCrash,
-  //   Fishing: iconFish,
-  //    Arcade:iconArcade,
-  //   Lottery: iconLottery,
-  // };
-
-  const iconArray = [
-    iconSport,
-    iconCasino,
-    iconTable,
-    iconCrash,
-    iconFish,
-    iconArcade,
-    iconLottery,
-  ];
-
   const { data: allCategories } = useGetAllCategoriesQuery();
-  // const { data: allHomeGames } = useGetAllHomeGamesQuery();
   const { data: allSubCategories } = useGetAllSubCategoriesQuery();
   const [activeTab, setActiveTab] = useState(null);
   const filteredCategories = allCategories?.filter(
@@ -47,11 +16,6 @@ const HomeTabs = () => {
   if (!activeTab && filteredCategories?.length > 0) {
     setActiveTab(filteredCategories[0].name);
   }
-
-  // Filter games based on the active category
-  // const filteredGames = allHomeGames?.filter(
-  //   (game) => game.category === activeTab
-  // );
 
   const filteredSubCategories = allSubCategories?.filter(
     (subCategory) => subCategory.category === activeTab
@@ -82,7 +46,11 @@ const HomeTabs = () => {
             <img
               src={`${import.meta.env.VITE_BASE_API_URL}${category.image}`}
               alt={category.name}
-              className="w-7 mb-1"
+              className={`w-7 mb-1 transition-all duration-300 ${
+                category.name === activeTab
+                  ? "filter invert sepia brightness-[1.2] saturate-[5] hue-rotate-[20deg]"
+                  : ""
+              }`}
             />
 
             <p
@@ -92,45 +60,6 @@ const HomeTabs = () => {
             </p>
           </motion.div>
         ))}
-        {/* {filteredCategories?.map((category, index) => (
-          <motion.div
-            key={category._id}
-            className={`flex flex-col text-[10px] items-center cursor-pointer relative 
-      ${
-        category.name === activeTab
-          ? "bg-jili-bgSecondary text-jili-textPrimary px-5 py-1 rounded"
-          : "hover:bg-tab-background p-2 text-black"
-      }`}
-            onClick={() => setActiveTab(category.name)}
-            whileTap={{ scale: 0.95 }}
-          >
-            {category.name === activeTab ? (
-              <div
-                className="w-5 h-5"
-                style={{
-                  WebkitMaskImage: `url(${iconArray[index]})`,
-                  maskImage: `url(${iconArray[index]})`,
-                  WebkitMaskRepeat: "no-repeat",
-                  maskRepeat: "no-repeat",
-                  WebkitMaskSize: "contain",
-                  maskSize: "contain",
-                  backgroundColor: "#FFE400",
-                }}
-              />
-            ) : (
-              <img
-                src={iconArray[index]}
-                alt={category.name}
-                className={`w-5 ${
-                  index !== 0 ? "filter grayscale" : "filter brightness-0"
-                }`}
-              />
-            )}
-            <p className={category.name === activeTab ? "font-bold" : ""}>
-              {category.name}
-            </p>
-          </motion.div>
-        ))} */}
       </div>
 
       {/* Selected Category Title */}
