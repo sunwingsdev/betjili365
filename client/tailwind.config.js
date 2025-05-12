@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import animatePlugin from "tailwindcss-animate";
+import scrollbar from "tailwind-scrollbar";
 
 export default {
   darkMode: ["class"],
@@ -94,5 +95,6 @@ export default {
       },
     },
   },
-  plugins: [animatePlugin],
+  // plugins: [animatePlugin],
+   plugins: [animatePlugin, scrollbar],
 };

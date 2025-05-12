@@ -430,8 +430,11 @@ const NavMiddle = ({
 
           {/* Logo and sponsors */}
           <div className="flex items-center gap-5">
-            <div>
+            <div className="">
               {/* Sidebar */}
+              
+
+              
               <Sidebar
                 isSidebarOpen={isSidebarOpen}
                 toggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
@@ -442,6 +445,7 @@ const NavMiddle = ({
                 setIsSidebarOpen={setIsSidebarOpen}
                 handleOutsideClick={handleOutsideClick}
               />
+              
 
               {/* sidebar buttons  */}
               <div className={`transition-all duration-300 ease-in-out  `}>
@@ -458,7 +462,7 @@ const NavMiddle = ({
                     </div> */}
 
                     {/* Image Icons with Mask */}
-                    <div className="fixed top-[40px] left-0 2xl:w-[85px] xl:w-[6%] lg:w-[8%] md:w-[11%] flex flex-col  items-center gap-2 z-[40] h-screen scrollbar-hide overflow-y-auto bg-primary-primaryColor  ">
+                    <div className="fixed top-[44px] left-0 2xl:w-[50px] xl:w-[4%] lg:w-[4%] md:w-[32px] flex flex-col  items-center gap-2 z-[40] h-screen scrollbar-thin scrollbar-thumb-[#333333] scrollbar-track-transparent overflow-y-auto bg-primary-primaryColor  ">
                       <div className=" flex justify-center p-2 border-b border-white mr-2 border-opacity-20">
                         <button
                           onClick={() => setIsDark(!isDark)}
@@ -471,7 +475,7 @@ const NavMiddle = ({
                           >
                             {isDark ? "Dark" : "Light"}
                           </span> */}
-                          <div className="w-10  h-5 bg-gray-400 rounded-full relative flex items-center justify-center">
+                          <div className="w-10 md:ml-2 md:w-7 lg:w-8 lg:ml-2  h-5 bg-gray-400 rounded-full relative flex items-center justify-center">
                             <div
                               className={`w-4 h-4 bg-white rounded-full absolute top-0.5 transition-all duration-300 flex items-center justify-center text-xs ${
                                 isDark ? "right-0.5" : "left-0.5"
@@ -489,7 +493,7 @@ const NavMiddle = ({
                           className="block p-2"
                         >
                           <div
-                            className="w-6 h-6 flex items-center justify-center"
+                            className="w-6 md:w-5 md:h-5 h-6 flex items-center justify-center"
                             style={{
                               WebkitMaskImage: `url(${item.img})`,
                               WebkitMaskRepeat: "no-repeat",
