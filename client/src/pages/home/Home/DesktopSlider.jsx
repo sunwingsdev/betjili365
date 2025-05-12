@@ -1,18 +1,23 @@
 import { useState, useEffect } from "react";
 import { GrPrevious, GrNext } from "react-icons/gr";
-import slider1 from "../../../assets/betJilliImages/slidersImages/image_237518.jpg";
-import slider2 from "../../../assets/betJilliImages/slidersImages/image_219046.jpg";
-import slider3 from "../../../assets/betJilliImages/slidersImages/image_221526.jpg";
-import slider4 from "../../../assets/betJilliImages/slidersImages/image_219788.jpg";
-import slider5 from "../../../assets/betJilliImages/slidersImages/image_219491.jpg";
+import { useGetHomeControlsQuery } from "@/redux/features/allApis/homeControlApi/homeControlApi";
 
 const DesktopSlider = () => {
-  const slides = [slider1, slider2, slider3, slider4, slider5];
+  const { data: homeControls } = useGetHomeControlsQuery();
+
+  const bannerImages = homeControls?.filter(
+    (control) =>
+      control?.page === "home" &&
+      control?.category === "slider" &&
+      control?.isSelected === true
+  );
+
+  const slides = bannerImages || [];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState("next");
   const [autoSlide, setAutoSlide] = useState(true);
 
-  const totalSlides = slides.length;
+  const totalSlides = slides?.length;
 
   const nextSlide = () => {
     setDirection("next");
@@ -58,12 +63,19 @@ const DesktopSlider = () => {
   const getNextIndex = () =>
     currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
 
+  const getImageUrl = (imagePath) =>
+    `${import.meta.env.VITE_BASE_API_URL}${imagePath}`;
+
   return (
     <div className="relative  w-full overflow-hidden">
       {/* Left (Previous) Preview Image */}
       <div className="absolute top-0 left-0 w-[5%] h-full z-0">
         <img
-          src={slides[getPrevIndex()]}
+          src={
+            slides[getPrevIndex()]?.image
+              ? getImageUrl(slides[getPrevIndex()].image)
+              : ""
+          }
           alt="Previous"
           className="w-full h-full object-cover rounded-lg opacity-60"
         />
@@ -72,7 +84,11 @@ const DesktopSlider = () => {
       {/* Right (Next) Preview Image */}
       <div className="absolute top-0 right-0 w-[5%] h-full z-0">
         <img
-          src={slides[getNextIndex()]}
+          src={
+            slides[getNextIndex()]?.image
+              ? getImageUrl(slides[getNextIndex()]?.image)
+              : ""
+          }
           alt="Next"
           className="w-full h-full object-cover rounded-lg opacity-60"
         />
@@ -87,7 +103,11 @@ const DesktopSlider = () => {
           }`}
         >
           <img
-            src={slides[currentIndex]}
+            src={
+              slides[currentIndex]?.image
+                ? getImageUrl(slides[currentIndex].image)
+                : ""
+            }
             alt="Current"
             className="w-full h-full object-cover"
           />
@@ -109,7 +129,7 @@ const DesktopSlider = () => {
 
         {/* Dots */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-          {slides.map((_, index) => (
+          {slides?.map((_, index) => (
             <button
               key={index}
               onClick={() => {

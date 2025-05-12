@@ -8,7 +8,7 @@ const Navbar = ({
   openLoginModal,
   openRegisterModal,
   openBDTFacaiModal,
-  openDWModal
+  openDWModal,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -80,7 +80,7 @@ const Navbar = ({
         openBDTFacaiModal={openBDTFacaiModal}
         openDWModal={openDWModal}
       />
-      <NavBottom navItems={mergedItems} />
+      {/* <NavBottom navItems={mergedItems} /> */}
     </div>
   );
 };

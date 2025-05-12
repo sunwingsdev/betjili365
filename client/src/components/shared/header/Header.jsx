@@ -22,8 +22,16 @@ import { MdOutlineChat } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import MenuHeader from "./MenuHeader";
 import { LanguageContext } from "@/Context/LanguageContext";
+import { useSelector } from "react-redux";
 
-const Header = ({ menuItems,openLoginModal,openRegisterModal,openBDTFacaiModal }) => {
+const Header = ({
+  menuItems,
+  openLoginModal,
+  openDWModal,
+  openRegisterModal,
+  openBDTFacaiModal,
+}) => {
+  const { user } = useSelector((state) => state.auth);
   const { language } = useContext(LanguageContext);
   const { data: homeControls } = useGetHomeControlsQuery();
   const { data: allHomeGames } = useGetAllHomeGamesQuery();
@@ -112,43 +120,42 @@ const Header = ({ menuItems,openLoginModal,openRegisterModal,openBDTFacaiModal }
             <div className="fixed inset-0 z-40 bg-black opacity-50"></div>
           )} */}
           <AnimatePresence>
-          {isOpen && (
-  <>
-    {/* Overlay - click করলে close হবে */}
-    <motion.div
-      className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={() => setIsOpen(false)} 
-    >
-      {/* Cross button - overlay এর ভিতরে top-right এ */}
-      <div className="absolute top-1 right-3 z-50">
-        <button
-          className="text-white font-semibold text-2xl"
-          onClick={(e) => {
-            e.stopPropagation(); // Bubble phase-এ propagation বন্ধ করবে
-            setIsOpen(false);
-          }}
-        >
-         <RxCross2 />
-        </button>
-      </div>
-    </motion.div>
+            {isOpen && (
+              <>
+                {/* Overlay - click করলে close হবে */}
+                <motion.div
+                  className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {/* Cross button - overlay এর ভিতরে top-right এ */}
+                  <div className="absolute top-1 right-3 z-50">
+                    <button
+                      className="text-white font-semibold text-2xl"
+                      onClick={(e) => {
+                        e.stopPropagation(); // Bubble phase-এ propagation বন্ধ করবে
+                        setIsOpen(false);
+                      }}
+                    >
+                      <RxCross2 />
+                    </button>
+                  </div>
+                </motion.div>
 
-    {/* Sidebar MenuHeader */}
-    <motion.div
-      initial={{ x: "-100%" }}
-      animate={{ x: 0 }}
-      exit={{ x: "-100%" }}
-      transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 z-50  w-[70%] h-screen overflow-y-auto  bg-transparent shadow-lg"
-    >
-      <MenuHeader />
-    </motion.div>
-  </>
-)}
-
+                {/* Sidebar MenuHeader */}
+                <motion.div
+                  initial={{ x: "-100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "-100%" }}
+                  transition={{ duration: 0.3 }}
+                  className="fixed top-0 left-0 z-50  w-[70%] h-screen overflow-y-auto  bg-transparent shadow-lg"
+                >
+                  <MenuHeader />
+                </motion.div>
+              </>
+            )}
           </AnimatePresence>
 
           {/* Sidebar (Menu) */}
@@ -382,23 +389,32 @@ const Header = ({ menuItems,openLoginModal,openRegisterModal,openBDTFacaiModal }
             <p className="text-xs">Live Chat</p>
           </div>
         </div> */}
+        <div className="flex gap-2 justify-end items-center text-xs w-[45%]">
+          {user ? (
+            <button
+              onClick={openDWModal}
+              className="px-2 pb-1 text-[10px] whitespace-nowrap bg-jili-bgPrimary text-black rounded-md"
+            >
+              {language === "en" ? "Deposit" : "ডিপোজিট"}
+            </button>
+          ) : (
+            <div className="flex gap-2">
+              <button
+                onClick={openLoginModal}
+                className="px-2 pb-1 text-[10px] whitespace-nowrap bg-jili-bgPrimary text-black rounded-md"
+              >
+                {language === "en" ? "Login" : "লগ ইন"}
+              </button>
+              <button
+                onClick={openRegisterModal}
+                className="px-2 pb-1 text-[10px] whitespace-nowrap bg-white text-black rounded-md"
+              >
+                {language === "en" ? "Sign Up" : "সাইন আপ"}
+              </button>
+            </div>
+          )}
 
-        <div className="flex gap-1 justify-end items-center text-xs w-[45%]">
-          <button
-          onClick={openLoginModal}
-          className="px-2 pb-1 text-[10px] whitespace-nowrap bg-jili-bgPrimary text-black rounded-md">
-            {language === "en"? "Login":"লগ ইন"}
-            
-          </button>
-          <button
-          onClick={openRegisterModal}
-          className="px-2 pb-1 text-[10px] whitespace-nowrap bg-white text-black rounded-md">
-            
-            {language === "en" ? "Sign Up" : "সাইন আপ"}
-          </button>
-          <div
-          onClick={openBDTFacaiModal}
-          className="w-[10%]">
+          <div onClick={openBDTFacaiModal} className="w-[10%]">
             <img src={bgImage} alt="" className="w-full" />
           </div>
         </div>

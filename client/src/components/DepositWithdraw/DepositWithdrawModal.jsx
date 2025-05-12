@@ -6,12 +6,10 @@ import DepositWithdrawTabs from "./DepositWithdrawTabs/DepositWithdrawTabs";
 const DepositWithdrawModal = ({
   isModalDWOpen,
   setIsModalDWOpen,
-//   setIsModalOpen,
+  //   setIsModalOpen,
   setIsModalForgetOpen,
 }) => {
   const { language } = useContext(LanguageContext);
-
-  
 
   const handleBackgroundClick = () => {
     setIsModalDWOpen(false);
@@ -42,7 +40,7 @@ const DepositWithdrawModal = ({
 
         {/* Body */}
         <div className="flex-1   ">
-          <DepositWithdrawTabs/>
+          <DepositWithdrawTabs />
         </div>
       </div>
     </div>

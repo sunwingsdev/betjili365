@@ -60,8 +60,6 @@ const MainLayout = () => {
     ),
   }));
 
-  console.log("mm", menuItems);
-
   return (
     <>
       <div>
@@ -70,13 +68,15 @@ const MainLayout = () => {
       </div>
 
       <div className="relative hidden md:block bg-jili-bgBlack">
-        {!hideCommonComponents && <Navbar
-         menuItems={menuItems} 
-         openLoginModal={() => setIsModalLoginOpen(true)}
-         openDWModal={() => setIsModalDWOpen(true)}
-          openRegisterModal={() => setIsModalOpen(true)}
-          openBDTFacaiModal={() => setIsOpenLanguage(true)}
-         />}
+        {!hideCommonComponents && (
+          <Navbar
+            menuItems={menuItems}
+            openLoginModal={() => setIsModalLoginOpen(true)}
+            openDWModal={() => setIsModalDWOpen(true)}
+            openRegisterModal={() => setIsModalOpen(true)}
+            openBDTFacaiModal={() => setIsOpenLanguage(true)}
+          />
+        )}
 
         <Outlet context={{ menuItems }} />
         {!hideCommonComponents && (
@@ -90,6 +90,7 @@ const MainLayout = () => {
         <Header
           menuItems={menuItems}
           openLoginModal={() => setIsModalLoginOpen(true)}
+          openDWModal={() => setIsModalDWOpen(true)}
           openRegisterModal={() => setIsModalOpen(true)}
           openBDTFacaiModal={() => setIsOpenLanguage(true)}
         />
@@ -132,7 +133,6 @@ const MainLayout = () => {
         <DepositWithdrawModal
           isModalDWOpen={isModalDWOpen}
           setIsModalDWOpen={setIsModalDWOpen}
-          
         />
       )}
       {isModalForgetOpen && (

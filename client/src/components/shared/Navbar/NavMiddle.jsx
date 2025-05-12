@@ -48,26 +48,6 @@ import bgImage from "../../../assets/betJilliImages/images/BD.png";
 
 import Sidebar from "./Sidebar";
 
-const sponsors = [
-  {
-    id: 1,
-    image: "https://www.baji.live/images/web/sponsor/deccan-gladiators.png",
-  },
-  {
-    id: 2,
-    image:
-      "https://www.baji.live/images/web/sponsor/sunrisers-eastern-cape.png",
-  },
-  {
-    id: 3,
-    image: "https://www.baji.live/images/web/sponsor/quetta-gladiators.png",
-  },
-  {
-    id: 4,
-    image: "https://www.baji.live/images/web/sponsor/bologna-fc-1909.png",
-  },
-];
-
 const NavMiddle = ({
   navItems,
   openLoginModal,
@@ -339,8 +319,7 @@ const NavMiddle = ({
   };
 
   const [openDropdown, setOpenDropdown] = useState(null);
-  
-  
+
   const handleSidebarItemClick = (item) => {
     setIsSidebarOpen(true);
 
@@ -432,9 +411,7 @@ const NavMiddle = ({
           <div className="flex items-center gap-5">
             <div className="">
               {/* Sidebar */}
-              
 
-              
               <Sidebar
                 isSidebarOpen={isSidebarOpen}
                 toggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
@@ -445,7 +422,6 @@ const NavMiddle = ({
                 setIsSidebarOpen={setIsSidebarOpen}
                 handleOutsideClick={handleOutsideClick}
               />
-              
 
               {/* sidebar buttons  */}
               <div className={`transition-all duration-300 ease-in-out  `}>
@@ -535,9 +511,24 @@ const NavMiddle = ({
                   )}
                 </span>
               </p>
-              <Link to="/profile/deposit">
-                <PrimaryButton>ডিপোজিট</PrimaryButton>
-              </Link>
+              <div
+                className="flex items-center gap-2 px-7 py-1 rounded cursor-pointer bg-jili-bgPrimary hover:border border border-transparent"
+                onClick={openDWModal}
+              >
+                <div
+                  className="w-6 h-6"
+                  style={{
+                    WebkitMaskImage: `url(${depositImage})`,
+                    maskImage: `url(${depositImage})`,
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskSize: "contain",
+                    maskSize: "contain",
+                    backgroundColor: "black", // Black masked icon
+                  }}
+                ></div>
+                <span className="text-black">ডিপোজিট</span>
+              </div>
               <Link to="/profile">
                 <p className="px-3 py-1 hover:border-[#ffb405] hover:border border border-transparent rounded cursor-pointer">
                   সদস্য কেন্দ্র
@@ -558,45 +549,16 @@ const NavMiddle = ({
               </p>
             </div>
           ) : (
-            <div className="md:flex items-center gap-8 text-white hidden">
-              {/* <Link to="/login"> */}
-              {/* <p
-                className="px-7 py-1  hover:border-[#ffb405] hover:border border border-transparent rounded cursor-pointer"
-                // onClick={handleModalOpen}
-              >
-                লগ ইন
-              </p> */}
-              <div
-                className="flex items-center gap-2 px-7 py-1 rounded cursor-pointer bg-jili-bgPrimary hover:border border border-transparent"
-                onClick={openDWModal}
-              >
-                <div
-                  className="w-6 h-6"
-                  style={{
-                    WebkitMaskImage: `url(${depositImage})`,
-                    maskImage: `url(${depositImage})`,
-                    WebkitMaskRepeat: "no-repeat",
-                    maskRepeat: "no-repeat",
-                    WebkitMaskSize: "contain",
-                    maskSize: "contain",
-                    backgroundColor: "black", // Black masked icon
-                  }}
-                ></div>
-                <span className="text-black">ডিপোজিট</span>
-              </div>
+            <div className="md:flex items-center gap-8 text-black hidden">
               <p
-                className="px-7 py-1 bg-white-to-darkblue   hover:border border border-transparent rounded cursor-pointer"
+                className="px-7 py-1 bg-yellow-400 hover:border border border-transparent rounded cursor-pointer"
                 onClick={openLoginModal}
               >
                 লগ ইন
               </p>
-              {/* </Link> */}
-              {/* <Link to="/register">
-                <PrimaryButton>সাইন আপ</PrimaryButton>
-              </Link> */}
-              {/* <Link to="/register"> */}
+
               <p
-                className="px-7 py-1 bg-gold-gradient   hover:border border border-transparent rounded cursor-pointer"
+                className="px-7 py-1 bg-white hover:border border border-transparent rounded cursor-pointer"
                 onClick={openRegisterModal}
               >
                 সাইন আপ
